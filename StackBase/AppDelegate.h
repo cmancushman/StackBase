@@ -8,10 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@import StackBase;
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
+@property StackBaseTable *table;
 
 @end
 

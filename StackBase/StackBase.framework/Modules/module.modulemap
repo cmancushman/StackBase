@@ -1,0 +1,6 @@
+framework module StackBase {
+  umbrella header "StackBase.h"
+
+  export *
+  module * { export * }
+}
