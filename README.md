@@ -44,6 +44,16 @@ Once you have properly installed StackBase, open up your main info.plist file. A
 
 <img src = 'https://user-images.githubusercontent.com/11083444/31787110-d64fec92-b534-11e7-8af2-e853bab0b0cc.png'/>
 
+You can add the values to the property list manually, or paste source code below:
+
+```
+<key>StackBase_API_KEY</key>
+<string>example_api_key</string>
+<key>StackBase_SECRET_KEY</key>
+<string>example_api_password_this_is_super_secret</string>
+```
+
+
 These keys will allow you to generate your own database. 
 
 - If you do not specify keys, your client will use the public database, in which anybody can add, edit, and remove tables. 
