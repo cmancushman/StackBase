@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		122AD56F1F9D088C0079595A /* StackBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 122AD56E1F9D088C0079595A /* StackBase.framework */; };
 		122BC7571F9B2A1100B14FBD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 122BC7561F9B2A1100B14FBD /* main.m */; };
 		122BC75A1F9B2A1100B14FBD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 122BC7591F9B2A1100B14FBD /* AppDelegate.m */; };
 		122BC75D1F9B2A1100B14FBD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 122BC75C1F9B2A1100B14FBD /* ViewController.m */; };
@@ -17,7 +18,6 @@
 		122BC77B1F9B2A1100B14FBD /* StackBaseUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 122BC77A1F9B2A1100B14FBD /* StackBaseUITests.m */; };
 		122BC78C1F9B2ADA00B14FBD /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 122BC78A1F9B2ADA00B14FBD /* LICENSE */; };
 		122BC78D1F9B2ADA00B14FBD /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 122BC78B1F9B2ADA00B14FBD /* README.md */; };
-		122BC7911F9CD23400B14FBD /* StackBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 122BC7901F9CD23400B14FBD /* StackBase.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		122AD56E1F9D088C0079595A /* StackBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = StackBase.framework; sourceTree = SOURCE_ROOT; };
 		122BC7521F9B2A1100B14FBD /* StackBase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StackBase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		122BC7561F9B2A1100B14FBD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		122BC7581F9B2A1100B14FBD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -56,7 +57,6 @@
 		122BC77C1F9B2A1100B14FBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		122BC78A1F9B2ADA00B14FBD /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		122BC78B1F9B2ADA00B14FBD /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		122BC7901F9CD23400B14FBD /* StackBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = StackBase.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				122BC7911F9CD23400B14FBD /* StackBase.framework in Frameworks */,
+				122AD56F1F9D088C0079595A /* StackBase.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,7 +126,7 @@
 		122BC7551F9B2A1100B14FBD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				122BC7901F9CD23400B14FBD /* StackBase.framework */,
+				122AD56E1F9D088C0079595A /* StackBase.framework */,
 				122BC7561F9B2A1100B14FBD /* main.m */,
 			);
 			name = "Supporting Files";
@@ -441,6 +441,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/StackBase",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = StackBase/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -456,6 +457,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/StackBase",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = StackBase/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -529,6 +531,7 @@
 				122BC7811F9B2A1100B14FBD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		122BC7821F9B2A1100B14FBD /* Build configuration list for PBXNativeTarget "StackBaseTests" */ = {
 			isa = XCConfigurationList;
@@ -537,6 +540,7 @@
 				122BC7841F9B2A1100B14FBD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		122BC7851F9B2A1100B14FBD /* Build configuration list for PBXNativeTarget "StackBaseUITests" */ = {
 			isa = XCConfigurationList;
@@ -545,6 +549,7 @@
 				122BC7871F9B2A1100B14FBD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
