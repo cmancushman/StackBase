@@ -22,18 +22,31 @@
     
     [StackBaseClient connectToStackBaseTableWithName:@"TestTable" withCompletionBlock:^(BOOL success, NSString *responseMessage, StackBaseTable *table) {
         
-        weakSelf.table = table;
-        
-        
-        StackBaseColumn *nameColumn = [StackBaseColumn textColumnWithName:@"Name"];
-        
-        [weakSelf.table addColumns:@[nameColumn] completionBlock:^(BOOL success, NSString *responseMessage) {
-           
-            NSLog(@"Table: %@", weakSelf.table);
+        if(success){
             
-        }];
-        
-        
+            weakSelf.table = table;
+            
+            StackBaseColumn *nameColumn = [StackBaseColumn textColumnWithName:@"Name"];
+            
+            [weakSelf.table addColumns:@[nameColumn] completionBlock:^(BOOL success, NSString *responseMessage) {
+                
+                if(success){
+                    
+                    NSLog(@"Table: %@", weakSelf.table);
+                    
+                }else{
+                    
+                    NSLog(@"Column Addition Unsuccessful: %@", responseMessage);
+                    
+                }
+                
+            }];
+            
+        }else{
+            
+            NSLog(@"Connection Unsuccessful: %@", responseMessage);
+            
+        }
         
     }];
     

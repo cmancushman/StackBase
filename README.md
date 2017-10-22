@@ -133,9 +133,53 @@ While a SQL table's implementation is quite complicated (binary trees and fullte
 | ------- |
 |   | 
 
-As you can see, the table only has one column, and zero rows. Doesn't really look like a table, does it? Let's fix that. Run the following command to give this table a new column:
+Doesn't really look like much of a table, does it? As you can see, the table only has one column, and zero rows.  Let's fix that. 
 
+## Add Columns to a Table
 
+We already have a numeric column (id), so we should give this table a text column. Before we can do that, we need to give our file a StackBase Table property. Add the following to your .h file:
+
+```objective-c
+@property StackBaseTable *table;
+```
+
+Then, replace your connection/creation method with the following methods:
+
+```objective-c
+[StackBaseClient connectToStackBaseTableWithName:@"TestTable" withCompletionBlock:^(BOOL success, NSString *responseMessage, StackBaseTable *table) {
+
+    if(success){
+
+        weakSelf.table = table;
+
+        StackBaseColumn *nameColumn = [StackBaseColumn textColumnWithName:@"Name"];
+
+        [weakSelf.table addColumns:@[nameColumn] completionBlock:^(BOOL success, NSString *responseMessage) {
+
+            if(success){
+
+                NSLog(@"Table: %@", weakSelf.table);
+
+            }else{
+
+                NSLog(@"Column Addition Unsuccessful: %@", responseMessage);
+
+            }
+
+        }];
+
+    }else{
+
+        NSLog(@"Connection Unsuccessful: %@", responseMessage);
+
+    }
+
+}];
+```
+
+After running this once, you should see the following result:
+
+<img src = 'https://user-images.githubusercontent.com/11083444/31865143-de2a190e-b793-11e7-864a-44c79dbf4870.png'>
 
 ## Requirements
 
