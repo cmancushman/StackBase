@@ -36,9 +36,9 @@ Conversely, since StackBase is in early development it is also not scaled. Enjoy
 pod 'StackBase'
 ```
 
-To run the example project, clone the repo and run `pod install` from the 'Example' directory to ensure all pods are synced.
+- If you do not wish to use CocoaPods, you can download the framework [directly](https://github.com/cmancushman/StackBaseFramework/blob/master/StackBase.zip). Simply unzip the file and add the derived .framework file to your project.
 
-If you do not wish to use CocoaPods, you can download the framework [directly](https://github.com/cmancushman/StackBaseFramework/blob/master/StackBase.zip). Simply unzip the file and add the derived .framework file to your project.
+- To use the example project, simply clone the repo or download it as a zip file. No pods are necessary.
 
 ## API Keys
 
@@ -77,18 +77,31 @@ __weak typeof(self) weakSelf = self;
 
 [StackBaseClient createMySQLTableWithName:@"TestTable" columns:@[] withCompletionBlock:^(BOOL success, NSString *responseMessage, StackBaseTable *table) {
 
-    if(success){
+if(success){
 
-        NSLog(@"TestTable: %@", table);
+NSLog(@"TestTable: %@", table);
 
-    }else{
+}else{
 
-        NSLog(@"Operation Unsuccessful: %@", responseMessage);
+NSLog(@"Operation Unsuccessful: %@", responseMessage);
 
-    }
+}
 
 }];
 ```
+If you have properly followed the installation steps, after running the project you will see the following output in your logs:
+
+<img src = 'https://user-images.githubusercontent.com/11083444/31864516-82a8f4ac-b788-11e7-8819-c6f6aae02a1d.png'>
+
+This output is the description of your current table. The following descriptors were returned: 
+
+- Table Name: The name of your table. Our table is named 'TestTable.'
+
+- Number of Columns: The number of columns your table has. TestTable has 1 column.
+
+- Column 1: Each column is described whenever the table is logged. TestTable's only column, named 'id,' is a numeric column that is signed (it accepts both positive and negative values), and is also the primary key.
+
+So what do we make of this?
 
 ## Requirements
 
