@@ -12,7 +12,7 @@
 
 Welcome to Stackbase, a MySQL-based backend framework currently built for Objective-C developers. By providing an easy-to-implement framework, Stackbase offers a solution for coders who are not confident in building their own databases or do not wish to spend excessive time away from frontend. As will be demonstrated, Stackbase allows users to set up, maintain and use their own MySQL tables by only using Objective-C methods.
 
-## Benefits
+## Benefits of Using StackBase
 
 To be brief, Stackbase brings developers the following benefits:
 
@@ -20,13 +20,15 @@ To be brief, Stackbase brings developers the following benefits:
 
 - Complex queries implemented in an easily digested manner
 
-- Indexing done for the user. Columns are optimized for 'WHERE' conditions, including fulltext searches and UNION/or
+- Columns automatically resized to accomidate large input (numeric data capped at 12 integer-part digits and 9 decimal-part digits currently)
 
-- Currently free and easy to set up. As this is framework in early development, it is free to use, making backend 100% money and hassle free.
+- Logic handled for the user: columns are optimized for 'WHERE' conditions, including fulltext searches and UNION/or, and indexes are automatically created to speed up applicable searches (explained later)
 
-## Limitations
+- A free backend playground: StackBase is in early development and currently free, making backend 100% free
 
-Conversely, since StackBase is in early development it is also not scaled. Enjoy it as a free service, but do not use it commercially (yet).
+## Limitations of Using StackBase
+
+Conversely, since StackBase is in early development it is not currently scalable. Enjoy it as a free service, but do not use it commercially (yet). This is obviously a ***big*** limitation, and it is the immediate objective of StackBase to fix this and establish a billed tier.
 
 ## Installation
 
@@ -182,6 +184,13 @@ __weak typeof(self) weakSelf = self;
 After running this once, you should see the following result:
 
 <img src = 'https://user-images.githubusercontent.com/11083444/31865143-de2a190e-b793-11e7-864a-44c79dbf4870.png'>
+
+Now our table looks a little like this:
+
+| id | Name |
+| ------- | ------- |
+|   |   |
+
 
 ## Requirements
 
