@@ -129,9 +129,9 @@ If you are familiar with MySQL and SQL tables, then don't worry about reading th
 
 While a SQL table's implementation is quite complicated (binary trees and fulltext indexes aren't fun), the idea of a MySQL table is pretty easy to understand. All data is arranged in rows and columns, just like any other table. We can imagine, then, that TestTable looks something like this:
 
-| Attempt | #1  | #2  |
+| id |  |   |
 | ------- | --- | --- |
-| Seconds | 301 | 283 |
+|  |  |  |
 
 As you can see, the table only has one column, and zero rows. Doesn't really look like a table, does it? Let's fix that. Run the following command to give this table a new column:
 
