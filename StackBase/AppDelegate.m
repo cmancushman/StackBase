@@ -20,7 +20,7 @@
     
     __weak typeof(self) weakSelf = self;
     
-    [StackBaseClient createMySQLTableWithName:@"TestTable" columns:@[] withCompletionBlock:^(BOOL success, NSString *responseMessage, StackBaseTable *table) {
+    [StackBaseClient connectToStackBaseTableWithName:@"TestTable" withCompletionBlock:^(BOOL success, NSString *responseMessage, StackBaseTable *table) {
         
         weakSelf.table = table;
         

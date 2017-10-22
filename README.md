@@ -75,7 +75,7 @@ Now let's create a table. In the .m of wherever you have just imported StackBase
 ```objective-c
 __weak typeof(self) weakSelf = self;
 
-[StackBaseClient createMySQLTableWithName:@"TestTable" columns:@[] withCompletionBlock:^(BOOL success, NSString *responseMessage, StackBaseTable *table) {
+[StackBaseClient createStackBaseTableWithName:@"TestTable" columns:@[] withCompletionBlock:^(BOOL success, NSString *responseMessage, StackBaseTable *table) {
 
     if(success){
 
@@ -89,7 +89,25 @@ __weak typeof(self) weakSelf = self;
 
 }];
 ```
-You may have noticed the unnecessary line of code  ```objective-c __weak typeof(self) weakSelf = self; ```
+You may have noticed this unnecessary line of code:  ```objective-c __weak typeof(self) weakSelf = self; ``` The purpose of making this 'weakSelf' is to avoid retain loops, which are a risk as this framework uses completion blocks returning data from asynchronous web requests. You will see how 'weakSelf' is used when we add a column.
+
+After creating your first table, you no longer need to call 'createStackBaseTableWithName: columns: withCompletionBlock:.' The above method creates a table if one does not exist, and otherwise connects to a table that already exists. What this means is that after you run this method for the first time and create TestTable, the method will continue to work but it will not recreate TestTable each time. This is important because it means that you will not lose your data by running this method on a pre-existing table. However, a faster method connects to a table that you know exists:
+
+```objective-c
+[StackBaseClient connectToStackBaseTableWithName:@"TestTable" withCompletionBlock:^(BOOL success, NSString *responseMessage, StackBaseTable *table) {
+
+    if(success){
+
+        NSLog(@"TestTable: %@", table);
+
+    }else{
+
+        NSLog(@"Operation Unsuccessful: %@", responseMessage);
+
+}
+
+}];
+```
 
 If you have properly followed the installation steps, after running the project you will see the following output in your logs:
 
@@ -109,7 +127,7 @@ So what do we make of this?
 
 If you are familiar with MySQL and SQL tables, then don't worry about reading this. The following is a brief explanation of how the table we just created works:
 
-While a SQL table's implementation is quite complicated (binary trees and fulltext indeces aren't fun), the idea of a MySQL table is pretty easy to understand. All data is arranged in rows and columns, just like any other table. We can imagine, then, that TestTable looks something like this:
+While a SQL table's implementation is quite complicated (binary trees and fulltext indexes aren't fun), the idea of a MySQL table is pretty easy to understand. All data is arranged in rows and columns, just like any other table. We can imagine, then, that TestTable looks something like this:
 
      id       | 
 ------------- | ---
