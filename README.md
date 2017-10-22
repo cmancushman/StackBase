@@ -89,9 +89,9 @@ __weak typeof(self) weakSelf = self;
 
 }];
 ```
-You may have noticed this unnecessary line of code:  ```objective-c __weak typeof(self) weakSelf = self; ``` The purpose of making this 'weakSelf' is to avoid retain loops, which are a risk as this framework uses completion blocks returning data from asynchronous web requests. You will see how 'weakSelf' is used when we add a column.
+You may have noticed this unnecessary line of code:  ```objective-c __weak typeof(self) weakSelf = self; ``` The purpose of making this 'weakSelf' object is to avoid retain loops, which are a risk as this framework uses completion blocks returning data from asynchronous web requests. You will see how 'weakSelf' is used when we add a column.
 
-After creating your first table, you no longer need to call 'createStackBaseTableWithName: columns: withCompletionBlock:.' The above method creates a table if one does not exist, and otherwise connects to a table that already exists. What this means is that after you run this method for the first time and create TestTable, the method will continue to work but it will not recreate TestTable each time. This is important because it means that you will not lose your data by running this method on a pre-existing table. However, a faster method connects to a table that you know exists:
+After creating your first table, you no longer need to call the 'createStackBaseTableWithName:' method. The above method creates a table if one does not exist, and otherwise connects to a table that already exists. What this means is that after you run this method for the first time and create TestTable, the method will continue to work but it will not recreate TestTable each time; you will not lose your data by running this method on a pre-existing table. However, you must run a connection method every time you declare a table instance. Simply assigning a StackBaseTable instance as such ```objective-c StackBaseTable *table = [[StackBaseTable alloc] init]; ``` will produce an empty table that cannot execute any methods. Fortunately, a connection method quicker than 'createStackBaseTable' exists:
 
 ```objective-c
 [StackBaseClient connectToStackBaseTableWithName:@"TestTable" withCompletionBlock:^(BOOL success, NSString *responseMessage, StackBaseTable *table) {
