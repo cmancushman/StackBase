@@ -185,7 +185,7 @@ After running this once, you should see the following result:
 
 <img src = 'https://user-images.githubusercontent.com/11083444/31865143-de2a190e-b793-11e7-864a-44c79dbf4870.png'>
 
-Now our table looks a little like this:
+Now our table looks like this:
 
 | id | Name |
 | ------- | ------- |
