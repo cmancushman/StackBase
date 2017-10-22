@@ -133,10 +133,9 @@ While a SQL table's implementation is quite complicated (binary trees and fullte
 ------------- | ---
               | 
               |
-              |
-              |
-              |
-              |
+              | 
+              | 
+              | 
 
 As you can see, the table only has one column, and zero rows. Doesn't really look like a table, does it? Let's fix that. Run the following command to give this table a new column:
 
