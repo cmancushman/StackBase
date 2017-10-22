@@ -77,18 +77,20 @@ __weak typeof(self) weakSelf = self;
 
 [StackBaseClient createMySQLTableWithName:@"TestTable" columns:@[] withCompletionBlock:^(BOOL success, NSString *responseMessage, StackBaseTable *table) {
 
-if(success){
+    if(success){
 
-NSLog(@"TestTable: %@", table);
+        NSLog(@"TestTable: %@", table);
 
-}else{
+    }else{
 
-NSLog(@"Operation Unsuccessful: %@", responseMessage);
+        NSLog(@"Operation Unsuccessful: %@", responseMessage);
 
-}
+    }
 
 }];
 ```
+You may have noticed the unnecessary line of code  ```objective-c __weak typeof(self) weakSelf = self; ```
+
 If you have properly followed the installation steps, after running the project you will see the following output in your logs:
 
 <img src = 'https://user-images.githubusercontent.com/11083444/31864516-82a8f4ac-b788-11e7-8819-c6f6aae02a1d.png'>
@@ -99,9 +101,28 @@ This output is the description of your current table. The following descriptors 
 
 - Number of Columns: The number of columns your table has. TestTable has 1 column.
 
-- Column 1: Each column is described whenever the table is logged. TestTable's only column, named 'id,' is a numeric column that is signed (it accepts both positive and negative values), and is also the primary key.
+- Column 1: Each column is iterated through and described whenever the table is logged. TestTable's only column, 'id,' is a signed numeric column (it accepts positive and negative numbers as values), and is also the primary key.
 
 So what do we make of this?
+
+## A Conceptual Break
+
+If you are familiar with MySQL and SQL tables, then don't worry about reading this. The following is a brief explanation of how the table we just created works:
+
+While a SQL table's implementation is quite complicated (binary trees and fulltext indeces aren't fun), the idea of a MySQL table is pretty easy to understand. All data is arranged in rows and columns, just like any other table. We can imagine, then, that TestTable looks something like this:
+
+     id       | 
+------------- | ---
+              | 
+              |
+              |
+              |
+              |
+              |
+
+As you can see, the table only has one column, and zero rows. Doesn't really look like a table, does it? Let's fix that. Run the following command to give this table a new column:
+
+
 
 ## Requirements
 

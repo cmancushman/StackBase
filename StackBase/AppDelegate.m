@@ -22,15 +22,18 @@
     
     [StackBaseClient createMySQLTableWithName:@"TestTable" columns:@[] withCompletionBlock:^(BOOL success, NSString *responseMessage, StackBaseTable *table) {
         
-        if(success){
+        weakSelf.table = table;
+        
+        
+        StackBaseColumn *nameColumn = [StackBaseColumn textColumnWithName:@"Name"];
+        
+        [weakSelf.table addColumns:@[nameColumn] completionBlock:^(BOOL success, NSString *responseMessage) {
+           
+            NSLog(@"Table: %@", weakSelf.table);
             
-            NSLog(@"TestTable: %@", table);
-            
-        }else{
-            
-            NSLog(@"Operation Unsuccessful: %@", responseMessage);
-            
-        }
+        }];
+        
+        
         
     }];
     
