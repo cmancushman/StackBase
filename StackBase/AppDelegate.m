@@ -17,6 +17,23 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    __weak typeof(self) weakSelf = self;
+    
+    [StackBaseClient createMySQLTableWithName:@"TestTable" columns:@[] withCompletionBlock:^(BOOL success, NSString *responseMessage, StackBaseTable *table) {
+        
+        if(success){
+            
+            NSLog(@"TestTable: %@", table);
+            
+        }else{
+            
+            NSLog(@"Operation Unsuccessful: %@", responseMessage);
+            
+        }
+        
+    }];
+    
     return YES;
 }
 
@@ -48,4 +65,7 @@
 }
 
 
+
+
 @end
+
