@@ -17,7 +17,7 @@
 		122BC77B1F9B2A1100B14FBD /* StackBaseUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 122BC77A1F9B2A1100B14FBD /* StackBaseUITests.m */; };
 		122BC78C1F9B2ADA00B14FBD /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 122BC78A1F9B2ADA00B14FBD /* LICENSE */; };
 		122BC78D1F9B2ADA00B14FBD /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 122BC78B1F9B2ADA00B14FBD /* README.md */; };
-		122BC78F1F9B32C200B14FBD /* StackBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 122BC78E1F9B32C200B14FBD /* StackBase.framework */; };
+		122BC7911F9CD23400B14FBD /* StackBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 122BC7901F9CD23400B14FBD /* StackBase.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +56,7 @@
 		122BC77C1F9B2A1100B14FBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		122BC78A1F9B2ADA00B14FBD /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		122BC78B1F9B2ADA00B14FBD /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		122BC78E1F9B32C200B14FBD /* StackBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = StackBase.framework; sourceTree = "<group>"; };
+		122BC7901F9CD23400B14FBD /* StackBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = StackBase.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				122BC78F1F9B32C200B14FBD /* StackBase.framework in Frameworks */,
+				122BC7911F9CD23400B14FBD /* StackBase.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,7 +126,7 @@
 		122BC7551F9B2A1100B14FBD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				122BC78E1F9B32C200B14FBD /* StackBase.framework */,
+				122BC7901F9CD23400B14FBD /* StackBase.framework */,
 				122BC7561F9B2A1100B14FBD /* main.m */,
 			);
 			name = "Supporting Files";
