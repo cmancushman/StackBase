@@ -146,6 +146,8 @@ We already have a numeric column (id), so we should give this table a text colum
 Then, replace your connection/creation method with the following methods:
 
 ```objective-c
+__weak typeof(self) weakSelf = self;
+
 [StackBaseClient connectToStackBaseTableWithName:@"TestTable" withCompletionBlock:^(BOOL success, NSString *responseMessage, StackBaseTable *table) {
 
     if(success){
