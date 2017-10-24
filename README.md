@@ -97,31 +97,13 @@ Before we proceed, take note of the objects returned by the completion block: ``
 
 - ``` BOOL success``` A boolean that indicates whether or not the method was successful. As a rule of thumb, always check this value before implementing any more logic.
 
-- ``` NSString *responseMessage``` A string desribing the outcome of the method. If the method is successful, responseMessage will return 'The operation was successful.' In the case of an error, responseMessage will return a summary of the problem.
+- ``` NSString *responseMessage``` A string desribing the outcome of the method. If the method is successful, responseMessage will return 'The operation was successful.' In the case of an error, ```responseMessage``` will provide a brief statement on whatever error occured.
 
-- ``` NSArray<NSDictionary *> *responseTable``` Returns rows that match a query. Each NSDicationary contains a row. The NSArray is an array of these result rows. This object will be explained in more deatail.
+- ``` NSArray<NSDictionary *> *responseTable``` Returns rows that match a query. Each NSDicationary represents a row, and contanis that row's key-object pairings. The NSArray is an array of these resulting rows. This object will be explained in more deatail.
 
 - ``` NSArray<NSString *> *tableNames``` This object is only found in the completion block of the method: ``` getNamesOfAllStackBaseTablesWithCompletionBlock:```. It contains the names of all tables in the database correspondng to the value you have assinged to StackBase_API_KEY. 
 
 - ```StackBaseTable *table``` The StackBaseTable instance returned when the client connects to the database. These instances of StackBaseTable are important, as you must run a connection method every time you declare a table instance. Simply assigning a StackBaseTable instance as such: ``` StackBaseTable *table = [[StackBaseTable alloc] init]; ``` will produce an empty table that cannot execute any methods. The StackBaseTable instances found in completion blocks are the only ones that are properly constructed and populated with data. 
-
-After you run the method ```createStackBaseTableWithName:``` for the first time and create TestTable, the method will continue to work but it will not recreate TestTable each time. Rather, it will connect to the existing TestTable found in your database. A quicker connection method than this exists for a table you already know exists in your database:
-
-```objective-c
-[StackBaseClient connectToStackBaseTableWithName:@"TestTable" withCompletionBlock:^(BOOL success, NSString *responseMessage, StackBaseTable *table) {
-
-    if(success){
-
-        NSLog(@"TestTable: %@", table);
-
-    }else{
-
-        NSLog(@"Operation Unsuccessful: %@", responseMessage);
-
-}
-
-}];
-```
 
 Additionally, you may have noticed this unnecessary line of code:  ```__weak typeof(self) weakSelf = self; ``` The purpose of making this 'weakSelf' object is to avoid retain loops, which are a risk as this framework uses completion blocks returning data from asynchronous web requests. You will see how 'weakSelf' is used when we add a column to this table.
 
@@ -136,6 +118,24 @@ This output is the description of your current table. The following descriptors 
 - Number of Columns: The number of columns your table has. TestTable has 1 column.
 
 - Column 1: Each column is iterated through and described whenever the table is logged. TestTable's only column, 'id,' is a signed numeric column (it accepts positive and negative numbers as values), and is also the primary key.
+
+After you have executed the method ```createStackBaseTableWithName:``` for the first time and created TestTable, further calls of the method will connect to the existing TestTable found in your database rather than overwriting it with a new one. While this means you can use this method to reconnect to testTable, there is a quicker connection method for a table you already know exists in your database:
+
+```objective-c
+[StackBaseClient connectToStackBaseTableWithName:@"TestTable" withCompletionBlock:^(BOOL success, NSString *responseMessage, StackBaseTable *table) {
+
+    if(success){
+
+        NSLog(@"TestTable: %@", table);
+
+    }else{
+
+        NSLog(@"Operation Unsuccessful: %@", responseMessage);
+
+    }
+
+}];
+```
 
 So what do we make of this?
 
