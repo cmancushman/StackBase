@@ -119,7 +119,7 @@ This output is the description of your current table. The following descriptors 
 
 - Column 1: Each column is iterated through and described whenever the table is logged. TestTable's only column, 'id,' is a signed numeric column (it accepts positive and negative numbers as values), and is also the primary key.
 
-After you have executed the method ```createStackBaseTableWithName:``` for the first time and created TestTable, further calls of the method will connect to the existing TestTable found in your database rather than overwriting it with a new one. While this means you can use this method to reconnect to testTable, there is a quicker connection method for a table you already know exists in your database:
+After you have executed the method ```createStackBaseTableWithName:``` for the first time and created TestTable, further calls of the method will connect to the existing TestTable found in your database rather than overwriting it with a new one. While this means that you can run this method reapetedly whenever you wish to connect to a table, there is a quicker connection method for tables you already know exist on your database:
 
 ```objective-c
 [StackBaseClient connectToStackBaseTableWithName:@"TestTable" withCompletionBlock:^(BOOL success, NSString *responseMessage, StackBaseTable *table) {
