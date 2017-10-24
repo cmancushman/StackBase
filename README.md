@@ -93,8 +93,6 @@ __weak typeof(self) weakSelf = self;
 }];
 ```
 
-You may have noticed this unnecessary line of code:  ```objective-c __weak typeof(self) weakSelf = self; ``` The purpose of making this 'weakSelf' object is to avoid retain loops, which are a risk as this framework uses completion blocks returning data from asynchronous web requests. You will see how 'weakSelf' is used when we add a column to this table.
-
 Before we proceed, take note of the objects returned by the completion block: ```objective-c BOOL success, NSString *responseMessage, StackBaseTable *table``` StackBases uses different types of completion blocks, but they will always return at least one of five different objects:
 
 - ```objective-c BOOL success``` A boolean that returns whether or not the method was successful. As a rule of thumb, always check this value before proceeding further in your logic.
@@ -124,6 +122,8 @@ After you run the method ```objective-c createStackBaseTableWithName:``` for the
 
 }];
 ```
+
+Additionally, you may have noticed this unnecessary line of code:  ```objective-c __weak typeof(self) weakSelf = self; ``` The purpose of making this 'weakSelf' object is to avoid retain loops, which are a risk as this framework uses completion blocks returning data from asynchronous web requests. You will see how 'weakSelf' is used when we add a column to this table.
 
 If you have properly followed the installation steps, after running the project you will see the following output in your logs:
 
