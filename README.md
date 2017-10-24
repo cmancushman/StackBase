@@ -97,7 +97,7 @@ Before we proceed, take note of the objects returned by the completion block: ``
 
 - ``` BOOL success``` A boolean that returns whether or not the method was successful. As a rule of thumb, always check this value before proceeding further in your logic.
 
-- ``` NSString *responseMessage``` A string desribing the outcome of the method. If the method were successful, responseMessage will return 'The operation was successful.' In the case of an error, responseMessage will return a summary of the problem.
+- ``` NSString *responseMessage``` A string desribing the outcome of the method. If the method is successful, responseMessage will return 'The operation was successful.' In the case of an error, responseMessage will return a summary of the problem.
 
 - ``` NSArray<NSDictionary *> *responseTable``` Returns rows that match a query. Each NSDicationary contains a row. The NSArray is an array of these result rows. This object will be explained in more deatail.
 
