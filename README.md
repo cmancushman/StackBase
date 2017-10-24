@@ -93,7 +93,7 @@ __weak typeof(self) weakSelf = self;
 }];
 ```
 
-Before we proceed, take note of the objects returned by the completion block: ``` BOOL success, NSString *responseMessage, StackBaseTable *table```. StackBases uses different types of completion blocks, but they will always return at least one of five different objects:
+Before we proceed, take note of the objects returned by the completion block: ``` BOOL success, NSString *responseMessage, StackBaseTable *table``` StackBases uses different types of completion blocks, but they will always return at least one of five different objects:
 
 - ``` BOOL success``` A boolean that indicates whether or not the method was successful. As a rule of thumb, always check this value before implementing any more logic.
 
@@ -101,7 +101,7 @@ Before we proceed, take note of the objects returned by the completion block: ``
 
 - ``` NSArray<NSDictionary *> *responseTable``` Returns rows that match a query. Each NSDicationary represents a row, and contanis that row's key-object pairings. The NSArray is an array of these resulting rows. This object will be explained in more deatail.
 
-- ``` NSArray<NSString *> *tableNames``` This object is only found in the completion block of the method: ``` getNamesOfAllStackBaseTablesWithCompletionBlock:```. It contains the names of all tables in the database correspondng to the value you have assinged to StackBase_API_KEY. 
+- ``` NSArray<NSString *> *tableNames``` This object is only found in the completion block of the method: ``` getNamesOfAllStackBaseTablesWithCompletionBlock:``` The array contains the names of all tables in the database correspondng to the value you have assinged to StackBase_API_KEY. 
 
 - ```StackBaseTable *table``` The StackBaseTable instance returned when the client connects to the database. These instances of StackBaseTable are important, as you must run a connection method every time you declare a table instance. Simply assigning a StackBaseTable instance as such: ``` StackBaseTable *table = [[StackBaseTable alloc] init]; ``` will produce an empty table that cannot execute any methods. The StackBaseTable instances found in completion blocks are the only ones that are properly constructed and populated with data. 
 
