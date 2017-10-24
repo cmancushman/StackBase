@@ -167,7 +167,7 @@ __weak typeof(self) weakSelf = self;
             }else{
 
                 NSLog(@"Column Addition Unsuccessful: %@", responseMessage);
-
+        
             }
 
         }];
@@ -180,6 +180,8 @@ __weak typeof(self) weakSelf = self;
 
 }];
 ```
+
+As you can see in this code, you can specify the kind of column you add. StackBase columns can be text, numeric, or date-time. Here are the respective constructors for these
 
 After running this once, you should see the following result:
 
