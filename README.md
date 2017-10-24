@@ -57,12 +57,13 @@ You can add the values to the property list manually, or paste source code below
 <string>example_api_password_this_is_super_secret</string>
 ```
 
-
 These keys will allow you to generate your own database. 
 
 - If you do not specify keys, your client will use the public database, in which anybody can add, edit, and remove tables. 
 
 - If you try to create a database and receive an access denied error, somebody with a differnet secret key may already be using your API key. However, given the embryonic state of this project two users picking the same API keys is highly unlikely. In the future, API keys will be generated to avoid this possibility. 
+
+- You can create as many tables as you like in a database, as long as they have unique names.
 
 ## Create A Table
 
@@ -91,9 +92,22 @@ __weak typeof(self) weakSelf = self;
 
 }];
 ```
-You may have noticed this unnecessary line of code:  ```objective-c __weak typeof(self) weakSelf = self; ``` The purpose of making this 'weakSelf' object is to avoid retain loops, which are a risk as this framework uses completion blocks returning data from asynchronous web requests. You will see how 'weakSelf' is used when we add a column.
 
-After creating your first table, you no longer need to call the 'createStackBaseTableWithName:' method. The above method creates a table if one does not exist, and otherwise connects to a table that already exists. What this means is that after you run this method for the first time and create TestTable, the method will continue to work but it will not recreate TestTable each time; you will not lose your data by running this method on a pre-existing table. However, you must run a connection method every time you declare a table instance. Simply assigning a StackBaseTable instance as such: ```objective-c StackBaseTable *table = [[StackBaseTable alloc] init]; ``` will produce an empty table that cannot execute any methods. Fortunately, a quicker connection method than 'createStackBaseTable' exists:
+You may have noticed this unnecessary line of code:  ```objective-c __weak typeof(self) weakSelf = self; ``` The purpose of making this 'weakSelf' object is to avoid retain loops, which are a risk as this framework uses completion blocks returning data from asynchronous web requests. You will see how 'weakSelf' is used when we add a column to this table.
+
+Before we proceed, take note of the objects returned by the completion block: ```objective-c BOOL success, NSString *responseMessage, StackBaseTable *table``` StackBases uses different types of completion blocks, but they will always return at least one of five different objects:
+
+- ```objective-c BOOL success``` A boolean that returns whether or not the method was successful. As a rule of thumb, always check this value before proceeding further in your logic.
+
+- ```objective-c NSString *responseMessage``` A string desribing the outcome of the method. If the method were successful, responseMessage will return 'The operation was successful.' In the case of an error, responseMessage will return a summary of the problem.
+
+- ```objective-c NSArray<NSDictionary *> *responseTable``` Returns rows that match a query. Each NSDicationary contains a row. The NSArray is an array of these result rows. This object will be explained in more deatail.
+
+- ```objective-c NSArray<NSString *> *tableNames``` This object is only found in the completion block of the method: ```objective-c getNamesOfAllStackBaseTablesWithCompletionBlock:```. It contains the names of all tables in the database correspondng to the value you have assinged to StackBase_API_KEY. 
+
+- ```objective-c StackBaseTable *table``` The StackBaseTable instance returned when the client connects to the database. These instances of StackBaseTable are important, as you must run a connection method every time you declare a table instance. Simply assigning a StackBaseTable instance as such: ```objective-c StackBaseTable *table = [[StackBaseTable alloc] init]; ``` will produce an empty table that cannot execute any methods. The StackBaseTable instances found in completion blocks are the only ones that are properly constructed and populated with data. 
+
+After you run the method ```objective-c createStackBaseTableWithName:``` for the first time and create TestTable, the method will continue to work but it will not recreate TestTable each time. Rather, it will connect to the existing TestTable found in your database. A quicker connection method than this exists for a table you already know exists in your database:
 
 ```objective-c
 [StackBaseClient connectToStackBaseTableWithName:@"TestTable" withCompletionBlock:^(BOOL success, NSString *responseMessage, StackBaseTable *table) {
@@ -180,8 +194,7 @@ __weak typeof(self) weakSelf = self;
 
 }];
 ```
-
-As you can see in this code, you can specify the kind of column you add. StackBase columns can be text, numeric, or date-time. Here are the respective constructors for these
+Take two notes from this 
 
 After running this once, you should see the following result:
 
