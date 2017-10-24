@@ -93,7 +93,7 @@ __weak typeof(self) weakSelf = self;
 }];
 ```
 
-Before we proceed, take note of the objects returned by the completion block: ```objective-c BOOL success, NSString *responseMessage, StackBaseTable *table``` StackBases uses different types of completion blocks, but they will always return at least one of five different objects:
+Before we proceed, take note of the objects returned by the completion block: ```objective-c BOOL success, NSString *responseMessage, StackBaseTable *table```. StackBases uses different types of completion blocks, but they will always return at least one of five different objects:
 
 - ```objective-c BOOL success``` A boolean that returns whether or not the method was successful. As a rule of thumb, always check this value before proceeding further in your logic.
 
