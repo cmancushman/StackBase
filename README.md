@@ -305,7 +305,7 @@ You should receive the following output:
 
 There is a lot of new information in this snippet, so let us cover the important bits:
 
-- ```weakSelf.table addRows:``` This method adds rows to a StackBase table by passing an array of dictionaries. Each dictionary represents a row to be added. In this case, we added the following rows: 
+1. ```weakSelf.table addRows:``` This method adds rows to a StackBase table by passing an array of dictionaries. Each dictionary represents a row to be added. In this case, we added the following rows: 
 ```objective-c
 @{@"Name" : @"Chris", @"Memo" : @"Checking in for the first time. Can you leave a memo Sean?"}
 @{@"Name" : @"Sean"}
@@ -315,7 +315,7 @@ Each dictionary's keys and objects represent the column names and the data to be
 
 Note that for each row created, the columns being assigned do not have to be the same. In the second row, only the 'Name' column is fed data, while the other two given rows assign data to both 'Name' and 'Memo'
 
-- ```weakSelf.table getFirst:3 rowsWithCompletionBlock:``` It is impractical to include all of a table's rows when printing, as an SQL table can handle billions of rows. StackBase 'getRow' methods exist to retrieve rows that match certain conditions, in this case limiting return data to the first three rows. More detailed searches will be explained later, but the purpose behind all of them is to retrieve a smaller, organized portion of our data. Once retrieved, our rows are returned as an array of dictionaries called 'responseTable,' following the same structure as rows being added. They can then be printed:
+2. ```weakSelf.table getFirst:3 rowsWithCompletionBlock:``` It is impractical to include all of a table's rows when printing, as an SQL table can handle billions of rows. StackBase 'getRow' methods exist to retrieve rows that match certain conditions, in this case limiting return data to the first three rows. More detailed searches will be explained later, but the purpose behind all of them is to retrieve a smaller, organized portion of our data. Once retrieved, our rows are returned as an array of dictionaries called 'responseTable,' following the same structure as rows being added. They can then be printed:
 ```objective-c
 for(NSDictionary *row in responseTable){
 
