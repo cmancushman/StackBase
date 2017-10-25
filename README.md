@@ -306,7 +306,7 @@ You should receive the following output:
 There is a lot of new information in this snippet, so let us cover the important bits:
 
 - ```weakSelf.table addRows:``` This method adds rows to a StackBase table by passing an array of dictionaries. Each dictionary represents a row to be added. In this case, we added the following rows: 
-```
+```objective-c
 @{@"Name" : @"Chris", @"Memo" : @"Checking in for the first time. Can you leave a memo Sean?"}
 @{@"Name" : @"Sean"}
 @{@"Name" : @"Chris", @"Memo" : @"You forgot to leave a memo, Sean."}
@@ -315,7 +315,14 @@ Each dictionary's keys and objects represent the column names and the data to be
 
 Note that for each row created, the columns being assigned do not have to be the same. In the second row, only the 'Name' column is fed data, while the other two given rows assign data to both 'Name' and 'Memo'
 
-- ```weakSelf.table getFirst:3 rowsWithCompletionBlock:``` It is impractical to include all of a table's rows when printing, as an SQL table can handle billions of rows. StackBase 'getRow' methods exist to retrieve rows that match certain conditions. In this case, we limited our search to the first three rows. More detailed searches will be explained later, but the purpose behind all of them is to retrieve an smaller, organized portion of our data. 
+- ```weakSelf.table getFirst:3 rowsWithCompletionBlock:``` It is impractical to include all of a table's rows when printing, as an SQL table can handle billions of rows. StackBase 'getRow' methods exist to retrieve rows that match certain conditions, in this case limiting return data to the first three rows. More detailed searches will be explained later, but the purpose behind all of them is to retrieve an smaller, organized portion of our data. Once retrieved, our rows are organized in an array of dictionaries, just as they are when we post rows. They can subsequently be printed with this code as demonstrated above:
+```objective-c
+for(NSDictionary *row in responseTable){
+
+    NSLog(@"row %ld: %@", ([responseTable indexOfObject:row] + 1), row);
+
+}
+```
 
 
 ## Requirements
