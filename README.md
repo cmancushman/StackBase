@@ -71,7 +71,9 @@ Now let's create a table. In the .m of wherever you have just imported StackBase
 ```objective-c
 __weak typeof(self) weakSelf = self;
 
-[StackBaseClient createStackBaseTableWithName:@"TestTable" columns:@[] withCompletionBlock:^(BOOL success, NSString *responseMessage, StackBaseTable *table) {
+[StackBaseClient createStackBaseTableWithName:@"TestTable" 
+columns:@[] 
+withCompletionBlock:^(BOOL success, NSString *responseMessage, StackBaseTable *table) {
 
     if(success){
 
@@ -127,7 +129,8 @@ Doesn't really look like much of a table yet, does it? The table only has one co
 
 After you have executed the method ```createStackBaseTableWithName:``` for the first time and created TestTable, further calls of the method will connect to the existing TestTable found in your database rather than overwriting it with a new one. While this means that you can run this method whenever you wish to connect to your tables, there is a quicker connection method for tables you already know exist on your database:
 ```objective-c
-[StackBaseClient connectToStackBaseTableWithName:@"TestTable" withCompletionBlock:^(BOOL success, NSString *responseMessage, StackBaseTable *table) {
+[StackBaseClient connectToStackBaseTableWithName:@"TestTable" 
+withCompletionBlock:^(BOOL success, NSString *responseMessage, StackBaseTable *table) {
 
     if(success){
 
@@ -149,7 +152,8 @@ Then, replace your connection/creation method with the following nested methods:
 ```objective-c
 __weak typeof(self) weakSelf = self;
 
-[StackBaseClient connectToStackBaseTableWithName:@"TestTable" withCompletionBlock:^(BOOL success, NSString *responseMessage, StackBaseTable *table) {
+[StackBaseClient connectToStackBaseTableWithName:@"TestTable" 
+withCompletionBlock:^(BOOL success, NSString *responseMessage, StackBaseTable *table) {
 
     if(success){
 
@@ -157,7 +161,8 @@ __weak typeof(self) weakSelf = self;
 
         StackBaseColumn *nameColumn = [StackBaseColumn textColumnWithName:@"Name"];
 
-        [weakSelf.table addColumns:@[nameColumn] completionBlock:^(BOOL success, NSString *responseMessage) {
+        [weakSelf.table addColumns:@[nameColumn] 
+        completionBlock:^(BOOL success, NSString *responseMessage) {
 
             if(success){
 
@@ -199,7 +204,8 @@ Let's add two more column, another text column called 'Memo' and a date-time col
 ```objective-c
 __weak typeof(self) weakSelf = self;
 
-[StackBaseClient connectToStackBaseTableWithName:@"TestTable" withCompletionBlock:^(BOOL success, NSString *responseMessage, StackBaseTable *table) {
+[StackBaseClient connectToStackBaseTableWithName:@"TestTable" 
+withCompletionBlock:^(BOOL success, NSString *responseMessage, StackBaseTable *table) {
 
     if(success){
 
@@ -209,7 +215,8 @@ __weak typeof(self) weakSelf = self;
 
         StackBaseColumn *timeStampColumn = [StackBaseColumn dateTimeColumnWithName:@"Timestamp" type:StackBaseDateTimeTypeTIMESTAMP];
 
-        [weakSelf.table addColumns:@[memoColumn, timeStampColumn] completionBlock:^(BOOL success, NSString *responseMessage) {
+        [weakSelf.table addColumns:@[memoColumn, timeStampColumn] 
+        completionBlock:^(BOOL success, NSString *responseMessage) {
 
             if(success){
 
