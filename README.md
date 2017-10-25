@@ -217,7 +217,45 @@ Now our table looks like this:
 | ------- | ------- |
 |   |   |
 
-Let's add another column, this time a date-time type.
+Let's add two more column, another text column called 'Memo' and a date-time column called 'Timestamp.'
+
+```objective-c
+__weak typeof(self) weakSelf = self;
+
+[StackBaseClient connectToStackBaseTableWithName:@"TestTable" withCompletionBlock:^(BOOL success, NSString *responseMessage, StackBaseTable *table) {
+
+    if(success){
+
+        weakSelf.table = table;
+
+        StackBaseColumn *memoColumn = [StackBaseColumn textColumnWithName:@"Memo"];
+
+        StackBaseColumn *timeStampColumn = [StackBaseColumn dateTimeColumnWithName:@"Timestamp" type:StackBaseDateTimeTypeTIMESTAMP];
+
+        [weakSelf.table addColumns:@[memoColumn, timeStampColumn] completionBlock:^(BOOL success, NSString *responseMessage) {
+
+            if(success){
+
+                NSLog(@"Table: %@", weakSelf.table);
+
+            }else{
+
+                NSLog(@"Column Addition Unsuccessful: %@", responseMessage);
+
+            }
+
+        }];
+
+    }else{
+
+        NSLog(@"Connection Unsuccessful: %@", responseMessage);
+
+    }
+
+}];
+```
+
+<img src = 'https://user-images.githubusercontent.com/11083444/32007908-109017e8-b9d5-11e7-8e11-cc3895fdaff3.png'>
 
 ## Requirements
 

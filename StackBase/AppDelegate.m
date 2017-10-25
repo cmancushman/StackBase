@@ -26,9 +26,11 @@
             
             weakSelf.table = table;
             
-            StackBaseColumn *nameColumn = [StackBaseColumn textColumnWithName:@"Name"];
+            StackBaseColumn *memoColumn = [StackBaseColumn textColumnWithName:@"Memo"];
             
-            [weakSelf.table addColumns:@[nameColumn] completionBlock:^(BOOL success, NSString *responseMessage) {
+            StackBaseColumn *timeStampColumn = [StackBaseColumn dateTimeColumnWithName:@"Timestamp" type:StackBaseDateTimeTypeTIMESTAMP];
+            
+            [weakSelf.table addColumns:@[memoColumn, timeStampColumn] completionBlock:^(BOOL success, NSString *responseMessage) {
                 
                 if(success){
                     
