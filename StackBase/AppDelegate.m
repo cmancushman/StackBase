@@ -19,44 +19,42 @@
     // Override point for customization after application launch.
     
     __weak typeof(self) weakSelf = self;
-    
-    [StackBaseClient removeStackBaseTableWithName:@"TestTable" fromMySQLServerWithCompletionBlock:^(BOOL success, NSString *responseMessage) {
         
-        [StackBaseClient createStackBaseTableWithName:@"TestTable" columns:@[[StackBaseColumn textColumnWithName:@"Name"], [StackBaseColumn textColumnWithName:@"Memo"], [StackBaseColumn dateTimeColumnWithName:@"Timestamp" type:StackBaseDateTimeTypeTIMESTAMP]] withCompletionBlock:^(BOOL success, NSString *responseMessage, StackBaseTable *table) {
+        [StackBaseClient connectToStackBaseTableWithName:@"TestTable" withCompletionBlock:^(BOOL success, NSString *responseMessage, StackBaseTable *table) {
             
+            if(success){
+
             weakSelf.table = table;
             
-            [weakSelf.table deleteAllRowsWithCompletionBlock:^(BOOL success, NSString *responseMessage) {
+            [weakSelf.table updateRowsThatSatisfyTheCondition:[StackBaseCondition columnWithName:@"Name" isEqualTo:@"Sean"] withFieldsAndValues:@{@"Memo" : @"Hey Chris! This is my first memo. Am I doing this right?"} completionBlock:^(BOOL success, NSString *responseMessage) {
                 
-                [weakSelf.table addRows:@[@{@"Name" : @"Chris", @"Memo" : @"Checking in for the first time. Can you leave a memo Sean?"}, @{@"Name" : @"Sean"}, @{@"Name" : @"Chris", @"Memo" : @"You forgot to leave a memo, Sean."} ] completionBlock:^(BOOL success, NSString *responseMessage) {
+                if(success){
                     
-                    if(success){
+                    [weakSelf.table getFirst:3 rowsWithCompletionBlock:^(BOOL success, NSString *responseMessage, NSArray<NSDictionary *> *responseTable) {
                         
-                        NSLog(@"Operation Successful");
-                        
-                        [weakSelf.table getFirst:3 rowsWithCompletionBlock:^(BOOL success, NSString *responseMessage, NSArray<NSDictionary *> *responseTable) {
+                        for(NSDictionary *row in responseTable){
                             
-                            for(NSDictionary *row in responseTable){
-                                
-                                NSLog(@"row %ld: %@", ([responseTable indexOfObject:row] + 1), row);
-                                
-                            }
+                            NSLog(@"row %ld: %@", ([responseTable indexOfObject:row] + 1), row);
                             
-                        }];
+                        }
                         
-                    }else{
-                        
-                        NSLog(@"Operation Unsuccessful: %@", responseMessage);
-                        
-                    }
+                    }];
                     
-                }];
+                }else{
+                    
+                    NSLog(@"Update Unsuccessful: %@", responseMessage);
+                    
+                }
                 
             }];
+                
+            }else{
+                
+                NSLog(@"Operation Unsuccessful: %@", responseMessage);
+                
+            }
             
         }];
-        
-    }];
     
     return YES;
     
