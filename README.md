@@ -311,11 +311,11 @@ There is a lot of new information in this snippet, so let us cover the important
 @{@"Name" : @"Sean"}
 @{@"Name" : @"Chris", @"Memo" : @"You forgot to leave a memo, Sean."}
 ``` 
-Each dictionary's keys and objects represent the column names and the data to be aissigned to them, respectively. In this case, we are only using the 'Name' and 'Memo' columns to create rows. This is because 'id' auto-increments, which means that the client does not decide its value. Sending data to this column consequently does nothing. Additionally, 'Timestamp' exhibits a similar behavior; it was declared as column type ```StackBaseDateTimeTypeTIMESTAMP``` and timestamps are automatically assigned to the precise time the row was posted so they do not accept client-based data. 
+Each dictionary's keys and objects represent the column names and the data to be aissigned to them, respectively. In this case, we are only using the 'Name' and 'Memo' columns to create rows. This is because 'id' auto-increments, which means that the client does not decide its value. Sending data to this column consequently does nothing. Additionally, 'Timestamp' exhibits a similar behavior; it was declared as column type ```StackBaseDateTimeTypeTIMESTAMP``` and timestamps are automatically assigned to the precise time the row was posted, so they do not accept client-based data either. 
 
 Note that for each row created, the columns being assigned do not have to be the same. In the second row, only the 'Name' column is fed data, while the other two given rows assign data to both 'Name' and 'Memo'
 
--
+- ```weakSelf.table getFirst:3 rowsWithCompletionBlock:``` It is impractical to include all of a table's rows when printing it, as an SQL table can handle billions of rows. StackBase 'getRow' methods exist to retrieve rows that match certain conditions. In this case, we limited our search to the first three rows. More detailed searches will be explained later.
 
 
 ## Requirements
