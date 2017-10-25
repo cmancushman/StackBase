@@ -315,7 +315,7 @@ Each dictionary's keys and objects represent the column names and the data to be
 
 Note that for each row created, the columns being assigned do not have to be the same. In the second row, only the 'Name' column is fed data, while the other two given rows assign data to both 'Name' and 'Memo'
 
-- ```weakSelf.table getFirst:3 rowsWithCompletionBlock:``` It is impractical to include all of a table's rows when printing, as an SQL table can handle billions of rows. StackBase 'getRow' methods exist to retrieve rows that match certain conditions, in this case limiting return data to the first three rows. More detailed searches will be explained later, but the purpose behind all of them is to retrieve an smaller, organized portion of our data. Once retrieved, our rows are organized in an array of dictionaries called 'responseTable,' following the same structure as rows being added. They can be subsequently printed with this code as demonstrated above:
+- ```weakSelf.table getFirst:3 rowsWithCompletionBlock:``` It is impractical to include all of a table's rows when printing, as an SQL table can handle billions of rows. StackBase 'getRow' methods exist to retrieve rows that match certain conditions, in this case limiting return data to the first three rows. More detailed searches will be explained later, but the purpose behind all of them is to retrieve an smaller, organized portion of our data. Once retrieved, our rows are returned as an array of dictionaries called 'responseTable,' following the same structure as rows being added. They can be subsequently printed with this code as demonstrated above:
 ```objective-c
 for(NSDictionary *row in responseTable){
 
