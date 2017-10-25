@@ -211,12 +211,6 @@ After running this once, you should see the following result:
 
 <img src = 'https://user-images.githubusercontent.com/11083444/31865143-de2a190e-b793-11e7-864a-44c79dbf4870.png'>
 
-Now our table looks like this:
-
-| id | Name |
-| ------- | ------- |
-|   |   |
-
 Let's add two more column, another text column called 'Memo' and a date-time column called 'Timestamp.'
 
 ```objective-c
@@ -256,6 +250,10 @@ __weak typeof(self) weakSelf = self;
 ```
 
 <img src = 'https://user-images.githubusercontent.com/11083444/32007908-109017e8-b9d5-11e7-8e11-cc3895fdaff3.png'>
+
+| id | Name |
+| ------- | ------- |
+|   |   |
 
 ## Requirements
 
