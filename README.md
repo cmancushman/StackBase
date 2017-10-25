@@ -119,6 +119,8 @@ This output is the description of your current table. The following descriptors 
 
 - Column 1: Each column is iterated through and described whenever the table is logged. TestTable's only column, 'id,' is a signed numeric column (it accepts positive and negative numbers as values), and is also the primary key.
 
+You'll notice that this table already contains a column: 'id.' The column 'id' is created automatically with every table. It tracks post order of the table by storing an auto-incrementing integer starting at 1. The first row added to the table will have an 'id' of 1, the second 2, the third 3, etc..
+
 After you have executed the method ```createStackBaseTableWithName:``` for the first time and created TestTable, further calls of the method will connect to the existing TestTable found in your database rather than overwriting it with a new one. While this means that you can run this method reapetedly whenever you wish to connect to a table, there is a quicker connection method for tables you already know exist on your database:
 
 ```objective-c
@@ -137,19 +139,15 @@ After you have executed the method ```createStackBaseTableWithName:``` for the f
 }];
 ```
 
-So what do we make of this?
+## Envisioning our Table
 
-## A Conceptual Break
-
-If you are familiar with MySQL and SQL tables, then don't worry about reading this. The following is a brief explanation of how the table we just created works:
-
-While a SQL table's implementation is quite complicated (binary trees and fulltext indexes aren't fun), the idea of a MySQL table is pretty easy to understand. All data is arranged in rows and columns, just like any other table. We can imagine, then, that TestTable looks something like this:
+While a SQL table's implementation is quite complicated (binary trees and fulltext indexes aren't fun), the idea of an SQL table is pretty easy to understand. All data is arranged in rows and columns, just like any other table. We can imagine, then, that TestTable looks something like this:
 
 | id |  
 | ------- |
 |   | 
 
-Doesn't really look like much of a table, does it? As you can see, the table only has one column, and zero rows.  Let's fix that. 
+Doesn't really look like much of a table yet, does it? As you can see, the table only has one column, and zero rows.  Let's fix that. 
 
 ## Add Columns to a Table
 
