@@ -40,7 +40,7 @@ pod 'StackBase'
 
 - If you do not wish to use CocoaPods, you can download the framework [directly](https://github.com/cmancushman/StackBaseFramework/blob/master/StackBase.zip). Simply unzip the file and add the derived .framework file to your project.
 
-- To use the example project, clone the repo or download it as a zip file. No pods are necessary.
+- To use the example project, clone the repo or download it as a zip file. CocoaPods is not necessary.
 
 ## API Keys
 
