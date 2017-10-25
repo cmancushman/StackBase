@@ -197,13 +197,17 @@ Two points of interest from this snippet:
 
 - We are now using 'weakSelf' via assigning its ```weakSelf.table``` property to the instance of table returned by the completion block. What this does is allow successive completion blocks to call ```weakSelf.table``` without risking a retain cycle or causing the ```.table``` object to be null. 
 
-- The StackBaseColumn instance was declared using ```[StackBaseColumn textColumnWithName:@"Name"]``` StackBaseColumn uses one of three constructors: 
+- StackBaseColumn can only be properly instantiated using one of three constructors: 
 
 ```objective-c
-[StackBaseColumn textColumnWithName:@"Name"]
-[StackBaseColumn numericColumnWithName:@"Name"] 
-[StackBaseColumn dateTimeColumnWithName:@"Name"]
++(instancetype)textColumnWithName:(NSString *)name;
++(instancetype)numericColumnWithName:(NSString *)name shouldBeUnsigned:(BOOL)isUnsigned;
++(instancetype)dateTimeColumnWithName:(NSString *)name type:(StackBaseDateTimeType *)type;
 ```
+
+
+
+Since we called ```textColumnWithName:``` the column we created will store values as strings. ```numericColumnWithName:``` stores numeric data, and 
 
 After running this once, you should see the following result:
 
