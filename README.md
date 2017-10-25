@@ -299,10 +299,13 @@ Add the following inside of your connection method.
 
 }];
 ```
+You should receive the following output:
+
+<img src='https://user-images.githubusercontent.com/11083444/32016275-ae30a1ee-b9ed-11e7-861e-a89c49673cbb.png'>
 
 There is a lot of new information in this snippet, so let us cover the important bits:
 
-- ```weakSelf.table addRows:``` This method adds rows to a StackBase table in the format of 
+- ```weakSelf.table addRows:``` This method adds rows to a StackBase table one dictionary at a time
 
 
 ## Requirements
