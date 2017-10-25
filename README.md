@@ -199,9 +199,11 @@ Two points of interest from this snippet:
 
 - StackBaseColumn uses one of three constructors: 
 
-```[StackBaseColumn textColumnWithName:@"Name"]
+```objective-c
+[StackBaseColumn textColumnWithName:@"Name"]
 [StackBaseColumn numericColumnWithName:@"Name"] 
-[StackBaseColumn dateTimeColumnWithName:@"Name"]```
+[StackBaseColumn dateTimeColumnWithName:@"Name"]
+```
 
 After running this once, you should see the following result:
 
