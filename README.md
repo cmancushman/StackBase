@@ -262,9 +262,9 @@ withCompletionBlock:^(BOOL success, NSString *responseMessage, StackBaseTable *t
 
 }];
 ```
-| id | Name |
-| ------- | ------- |
-|   |   |
+| id | Name | Memo | Timestamp |
+| ------- | ------- | ------- | ------- |
+|   |   |   |   |
 
 ## Requirements
 
