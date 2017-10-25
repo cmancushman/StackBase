@@ -205,9 +205,7 @@ Two points of interest from this snippet:
 +(instancetype)dateTimeColumnWithName:(NSString *)name type:(StackBaseDateTimeType *)type;
 ```
 
-
-
-Since we called ```textColumnWithName:``` the column we created will store values as strings. ```numericColumnWithName:``` stores numeric data, and 
+Since we called ```textColumnWithName:``` the column we created will store values as strings. ```numericColumnWithName:``` stores numeric data, and ```dateTimeColumnWithName: type:``` will accept date-time data formatted by the given ```StackBaseDateTimeType``` value passed. 
 
 After running this once, you should see the following result:
 
@@ -219,6 +217,7 @@ Now our table looks like this:
 | ------- | ------- |
 |   |   |
 
+Let's add another column, this time a date-time type.
 
 ## Requirements
 
