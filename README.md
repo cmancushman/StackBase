@@ -327,7 +327,7 @@ for(NSDictionary *row in responseTable){
 ## Altering Rows
 
 Sean forgot to leave a memo, so let's fix the mistake.
-
+```objective-c
 [weakSelf.table updateRowsThatSatisfyTheCondition:[StackBaseCondition columnWithName:@"Name" isEqualTo:@"Sean"] withFieldsAndValues:@{@"Memo" : @"Hey Chris! This is my first memo. Am I doing this right?"} completionBlock:^(BOOL success, NSString *responseMessage) {
 
     if(success){
@@ -349,7 +349,7 @@ Sean forgot to leave a memo, so let's fix the mistake.
     }
 
 }];
-
+```
 And as we can see below, Sean's memo has been added:
 
 <img src='https://user-images.githubusercontent.com/11083444/32018884-894fd9be-b9f5-11e7-8581-ae492da269af.png'>
