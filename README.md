@@ -311,6 +311,7 @@ There is a lot of new information in this snippet, so let us cover the important
 @{@"Name" : @"Sean"}
 @{@"Name" : @"Chris", @"Memo" : @"You forgot to leave a memo, Sean."}
 ``` 
+For each row, the keys represent column names. In this case, we are using the "Name" and "Memo" columns to add rows. Why only those two? 'id' auto-increments, which means that the client does not decide its value. Sending data to this column does nothing. 'Timestamp' exhibits a similar behavior; it was declared as column type ```StackBaseDateTimeTypeTIMESTAMP``` Timestamps do not accept data, but are automatically assigned to the precise time the row was posted. 
 
 
 ## Requirements
