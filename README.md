@@ -237,7 +237,9 @@ Now, we don't need to use all those methods just to create a table with four dif
 ```objective-c
 __weak typeof(self) weakSelf = self;
 
-[StackBaseClient createStackBaseTableWithName:@"TestTable" columns:@[[StackBaseColumn textColumnWithName:@"Name"], [StackBaseColumn textColumnWithName:@"Memo"], [StackBaseColumn dateTimeColumnWithName:@"Timestamp" type:StackBaseDateTimeTypeTIMESTAMP]] withCompletionBlock:^(BOOL success, NSString *responseMessage, StackBaseTable *table) {
+[StackBaseClient createStackBaseTableWithName:@"TestTable" 
+columns:@[[StackBaseColumn textColumnWithName:@"Name"], [StackBaseColumn textColumnWithName:@"Memo"], [StackBaseColumn dateTimeColumnWithName:@"Timestamp" type:StackBaseDateTimeTypeTIMESTAMP]] 
+withCompletionBlock:^(BOOL success, NSString *responseMessage, StackBaseTable *table) {
 
     if(success){
 
