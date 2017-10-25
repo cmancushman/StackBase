@@ -20,7 +20,7 @@ To be brief, Stackbase brings developers the following benefits:
 
 - Complex queries implemented in an easily digested manner
 
-- Columns automatically resized to accomidate large input (numeric data capped at 12 integer-part digits and 9 decimal-part digits currently)
+- Columns automatically resized to accomodate large input (numeric data capped at 12 integer-part digits and 9 decimal-part digits currently)
 
 - Logic handled for the user: columns are optimized for 'WHERE' conditions, including fulltext searches and UNION/or, and indexes are automatically created to speed up applicable searches (explained later)
 
@@ -61,7 +61,7 @@ These keys will allow you to generate your own database.
 
 - If you do not specify keys, your client will use the public database, in which anybody can add, edit, and remove tables. 
 
-- If you try to create a database and receive an access denied error, somebody with a differnet secret key may already be using your API key. However, given the embryonic state of this project two users picking the same API keys is highly unlikely. In the future, API keys will be generated to avoid this possibility. 
+- If you try to create a database and receive an access denied error, somebody with a different secret key may already be using your API key. However, given the embryonic state of this project two users picking the same API keys is highly unlikely. In the future, API keys will be generated to avoid this possibility. 
 
 - You can create as many tables as you like in a database, as long as they have unique names.
 
@@ -97,11 +97,11 @@ Before we proceed, take note of the objects returned by the completion block: ``
 
 - ``` BOOL success``` A boolean that indicates whether or not the method was successful. As a rule of thumb, always check this value before implementing any more logic.
 
-- ``` NSString *responseMessage``` A string desribing the outcome of the method. If the method is successful, responseMessage will return 'The operation was successful.' In the case of an error, ```responseMessage``` will provide a brief statement on whatever error occured.
+- ``` NSString *responseMessage``` A string describing the outcome of the method. If the method is successful, responseMessage will return 'The operation was successful.' In the case of an error, ```responseMessage``` will provide a brief statement on whatever error occurred.
 
-- ``` NSArray<NSDictionary *> *responseTable``` Returns rows that match a query. Each NSDicationary represents a row, and contanis that row's key-object pairings. The NSArray is an array of these resulting rows. This object will be explained in more deatail.
+- ``` NSArray<NSDictionary *> *responseTable``` Returns rows that match a query. Each NSDictionary represents a row, and contains that row's key-object pairings. The NSArray is an array of these resulting rows. This object will be explained in more detail.
 
-- ``` NSArray<NSString *> *tableNames``` This object is only found in the completion block of the method: ``` getNamesOfAllStackBaseTablesWithCompletionBlock:``` The array contains the names of all tables in the database correspondng to the value you have assinged to StackBase_API_KEY. 
+- ``` NSArray<NSString *> *tableNames``` This object is only found in the completion block of the method: ``` getNamesOfAllStackBaseTablesWithCompletionBlock:``` The array contains the names of all tables in the database corresponding to the value you have assigned to StackBase_API_KEY. 
 
 - ```StackBaseTable *table``` The StackBaseTable instance returned when the client connects to the database. These instances of StackBaseTable are important, as you must run a connection method every time you declare a table instance. Simply assigning a StackBaseTable instance as such: ``` StackBaseTable *table = [[StackBaseTable alloc] init]; ``` will produce an empty table that cannot execute any methods. The StackBaseTable instances found in completion blocks are the only ones that are properly constructed and populated with data. 
 
@@ -123,17 +123,17 @@ You'll notice that this table already contains a column: 'id,' which is created 
 
 ## Envisioning our Table
 
-While a SQL table's implementation is quite complicated (binary trees and fulltext indexes aren't fun), the idea of an SQL table is pretty easy to understand. All data is arranged in rows and columns, just like any other table. We can imagine, then, that TestTable looks something like this:
+While an SQL table's implementation is quite complicated (binary trees and fulltext indexes aren't fun), the idea of an SQL table is pretty easy to understand. All data is arranged in rows and columns, just like any other table. We can imagine, then, that TestTable looks something like this:
 
 | id |  
 | ------- |
 |   | 
 
-Doesn't really look like much of a table yet, does it? As you can see, the table only has one column, and zero rows.  Let's fix that. 
+Doesn't really look like much of a table yet, does it? The table only has one column and zero rows.  Let's change that. 
 
 ## Add Columns to a Table
 
-After you have executed the method ```createStackBaseTableWithName:``` for the first time and created TestTable, further calls of the method will connect to the existing TestTable found in your database rather than overwriting it with a new one. While this means that you can run this method reapetedly whenever you wish to connect to a table, there is a quicker connection method for tables you already know exist on your database:
+After you have executed the method ```createStackBaseTableWithName:``` for the first time and created TestTable, further calls of the method will connect to the existing TestTable found in your database rather than overwriting it with a new one. While this means that you can run this method whenever you wish to connect to your tables, there is a quicker connection method for tables you already know exist on your database:
 
 ```objective-c
 [StackBaseClient connectToStackBaseTableWithName:@"TestTable" withCompletionBlock:^(BOOL success, NSString *responseMessage, StackBaseTable *table) {
@@ -151,7 +151,7 @@ After you have executed the method ```createStackBaseTableWithName:``` for the f
 }];
 ```
 
-We already have a numeric column (id), so we should give this table a text column. Before we can do that, we need to give our file a StackBase Table property. Add the following to your .h file:
+We already have a numeric column (id), so we should give this table a text column. Before we can do that, we need to add a property to our code. Put the following to your .h file:
 
 ```objective-c
 @property StackBaseTable *table;
@@ -192,7 +192,16 @@ __weak typeof(self) weakSelf = self;
 
 }];
 ```
-Take two notes from this 
+
+Two points of interest from this snippet:
+
+- We are now using 'weakSelf' via assigning its ```weakSelf.table``` property to the instance of table returned by the completion block. What this does is allow successive completion blocks to call ```weakSelf.table``` without risking a retain cycle or causing the ```.table``` object to be null. 
+
+- StackBaseColumn uses one of three constructors: 
+
+```[StackBaseColumn textColumnWithName:@"Name"]
+[StackBaseColumn numericColumnWithName:@"Name"] 
+[StackBaseColumn dateTimeColumnWithName:@"Name"]```
 
 After running this once, you should see the following result:
 
