@@ -305,7 +305,12 @@ You should receive the following output:
 
 There is a lot of new information in this snippet, so let us cover the important bits:
 
-- ```weakSelf.table addRows:``` This method adds rows to a StackBase table one dictionary at a time
+- ```weakSelf.table addRows:``` This method adds rows to a StackBase table by passing an array of dictionaries. Each dictionary represents a row to be added. In this case, we added the following rows: 
+```
+@{@"Name" : @"Chris", @"Memo" : @"Checking in for the first time. Can you leave a memo Sean?"}
+@{@"Name" : @"Sean"}
+@{@"Name" : @"Chris", @"Memo" : @"You forgot to leave a memo, Sean."}
+``` 
 
 
 ## Requirements
