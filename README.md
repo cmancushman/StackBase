@@ -262,7 +262,7 @@ withCompletionBlock:^(BOOL success, NSString *responseMessage, StackBaseTable *t
 
 }];
 ```
-Our table now has some breadth, but lacks depth:
+Adding the columns has given our table breadth:
 
 | id | Name | Memo | Timestamp |
 | ------- | ------- | ------- | ------- |
