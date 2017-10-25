@@ -33,11 +33,9 @@ Conversely, since StackBase is in early development it is not currently scalable
 ## Installation
 
 - StackBase is available through CocoaPods. To install it, simply add the following line to your Podfile:
-
 ```ruby
 pod 'StackBase'
 ```
-
 - If you do not wish to use CocoaPods, you can download the framework [directly](https://github.com/cmancushman/StackBaseFramework/blob/master/StackBase.zip). Simply unzip the file and add the derived .framework file to your project.
 
 - To use the example project, clone the repo or download it as a zip file. CocoaPods is not necessary.
@@ -49,14 +47,12 @@ Once you have properly installed StackBase, open up your main info.plist file. A
 <img src = 'https://user-images.githubusercontent.com/11083444/31787110-d64fec92-b534-11e7-8af2-e853bab0b0cc.png'/>
 
 You can add the values to the property list manually, or paste source code below:
-
 ```
 <key>StackBase_API_KEY</key>
 <string>example_api_key</string>
 <key>StackBase_SECRET_KEY</key>
 <string>example_api_password_this_is_super_secret</string>
 ```
-
 These keys will allow you to generate your own database. 
 
 - If you do not specify keys, your client will use the public database, in which anybody can add, edit, and remove tables. 
@@ -65,16 +61,13 @@ These keys will allow you to generate your own database.
 
 - You can create as many tables as you like in a database, as long as they have unique names.
 
-## Create A Table
+## Creating A Table
 
 After setting your API and secret keys, you are ready to create a table. In any .h file of your choosing import Stackbase.
-
 ```swift
 @import Stackbase;
 ```
-
 Now let's create a table. In the .m of wherever you have just imported StackBase run the following block:
-
 ```objective-c
 __weak typeof(self) weakSelf = self;
 
@@ -92,7 +85,6 @@ __weak typeof(self) weakSelf = self;
 
 }];
 ```
-
 Before we proceed, take note of the objects returned by the completion block: ``` BOOL success, NSString *responseMessage, StackBaseTable *table``` StackBases uses different types of completion blocks, but they will always return at least one of five different objects:
 
 - ``` BOOL success``` A boolean that indicates whether or not the method was successful. As a rule of thumb, always check this value before implementing any more logic.
@@ -131,10 +123,9 @@ While an SQL table's implementation is quite complicated (binary trees and fullt
 
 Doesn't really look like much of a table yet, does it? The table only has one column and zero rows.  Let's change that. 
 
-## Add Columns to a Table
+## Adding Columns to a Table
 
 After you have executed the method ```createStackBaseTableWithName:``` for the first time and created TestTable, further calls of the method will connect to the existing TestTable found in your database rather than overwriting it with a new one. While this means that you can run this method whenever you wish to connect to your tables, there is a quicker connection method for tables you already know exist on your database:
-
 ```objective-c
 [StackBaseClient connectToStackBaseTableWithName:@"TestTable" withCompletionBlock:^(BOOL success, NSString *responseMessage, StackBaseTable *table) {
 
@@ -150,15 +141,11 @@ After you have executed the method ```createStackBaseTableWithName:``` for the f
 
 }];
 ```
-
 We already have a numeric column (id), so we should give this table a text column. Before we can do that, we need to add a property to our code. Put the following to your .h file:
-
 ```objective-c
 @property StackBaseTable *table;
 ```
-
 Then, replace your connection/creation method with the following nested methods:
-
 ```objective-c
 __weak typeof(self) weakSelf = self;
 
@@ -192,19 +179,16 @@ __weak typeof(self) weakSelf = self;
 
 }];
 ```
-
 Two points of interest from this snippet:
 
 - We are now using 'weakSelf' via assigning its ```weakSelf.table``` property to the instance of table returned by the completion block. What this does is allow successive completion blocks to call ```weakSelf.table``` without risking a retain cycle or causing the ```.table``` object to be null. 
 
 - StackBaseColumn can only be properly instantiated using one of three constructors: 
-
 ```objective-c
 +(instancetype)textColumnWithName:(NSString *)name;
 +(instancetype)numericColumnWithName:(NSString *)name shouldBeUnsigned:(BOOL)isUnsigned;
 +(instancetype)dateTimeColumnWithName:(NSString *)name type:(StackBaseDateTimeType *)type;
 ```
-
 Since we called ```textColumnWithName:``` the column we created will store values as strings. ```numericColumnWithName:``` stores numeric data, and ```dateTimeColumnWithName: type:``` will accept date-time data formatted by the given ```StackBaseDateTimeType``` value passed. 
 
 After running this once, you should see the following result:
@@ -212,7 +196,6 @@ After running this once, you should see the following result:
 <img src = 'https://user-images.githubusercontent.com/11083444/31865143-de2a190e-b793-11e7-864a-44c79dbf4870.png'>
 
 Let's add two more column, another text column called 'Memo' and a date-time column called 'Timestamp.'
-
 ```objective-c
 __weak typeof(self) weakSelf = self;
 
@@ -248,7 +231,6 @@ __weak typeof(self) weakSelf = self;
 
 }];
 ```
-
 <img src = 'https://user-images.githubusercontent.com/11083444/32007908-109017e8-b9d5-11e7-8e11-cc3895fdaff3.png'>
 
 | id | Name |
