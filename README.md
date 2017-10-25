@@ -315,7 +315,7 @@ Each dictionary's keys and objects represent the column names and the data to be
 
 Note that for each row created, the columns being assigned do not have to be the same. In the second row, only the 'Name' column is fed data, while the other two given rows assign data to both 'Name' and 'Memo'
 
-- ```weakSelf.table getFirst:3 rowsWithCompletionBlock:``` It is impractical to include all of a table's rows when printing it, as an SQL table can handle billions of rows. StackBase 'getRow' methods exist to retrieve rows that match certain conditions. In this case, we limited our search to the first three rows. More detailed searches will be explained later, but the purpose behind all of them is to retrieve an smaller, organized portion of our data. 
+- ```weakSelf.table getFirst:3 rowsWithCompletionBlock:``` It is impractical to include all of a table's rows when printing, as an SQL table can handle billions of rows. StackBase 'getRow' methods exist to retrieve rows that match certain conditions. In this case, we limited our search to the first three rows. More detailed searches will be explained later, but the purpose behind all of them is to retrieve an smaller, organized portion of our data. 
 
 
 ## Requirements
