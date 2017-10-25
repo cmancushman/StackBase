@@ -233,6 +233,26 @@ __weak typeof(self) weakSelf = self;
 ```
 <img src = 'https://user-images.githubusercontent.com/11083444/32007908-109017e8-b9d5-11e7-8e11-cc3895fdaff3.png'>
 
+Now, we don't need to use all those methods just to create a table with four different columns. The following snippet is a single method that accomplishes the same thing:
+```objective-c
+__weak typeof(self) weakSelf = self;
+
+[StackBaseClient createStackBaseTableWithName:@"TestTable" columns:@[[StackBaseColumn textColumnWithName:@"Name"], [StackBaseColumn textColumnWithName:@"Memo"], [StackBaseColumn dateTimeColumnWithName:@"Timestamp" type:StackBaseDateTimeTypeTIMESTAMP]] withCompletionBlock:^(BOOL success, NSString *responseMessage, StackBaseTable *table) {
+
+    if(success){
+
+        weakSelf.table = table;
+
+        NSLog(@"Table: %@", weakSelf.table);
+
+    }else{
+
+        NSLog(@"Operation Unsuccessful: %@", responseMessage);
+
+    }
+
+}];
+```
 | id | Name |
 | ------- | ------- |
 |   |   |

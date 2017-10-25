@@ -20,39 +20,24 @@
     
     __weak typeof(self) weakSelf = self;
     
-    [StackBaseClient connectToStackBaseTableWithName:@"TestTable" withCompletionBlock:^(BOOL success, NSString *responseMessage, StackBaseTable *table) {
-        
+    [StackBaseClient createStackBaseTableWithName:@"TestTable" columns:@[[StackBaseColumn textColumnWithName:@"Name"], [StackBaseColumn textColumnWithName:@"Memo"], [StackBaseColumn dateTimeColumnWithName:@"Timestamp" type:StackBaseDateTimeTypeTIMESTAMP]] withCompletionBlock:^(BOOL success, NSString *responseMessage, StackBaseTable *table) {
+       
         if(success){
             
             weakSelf.table = table;
-            
-            StackBaseColumn *memoColumn = [StackBaseColumn textColumnWithName:@"Memo"];
-            
-            StackBaseColumn *timeStampColumn = [StackBaseColumn dateTimeColumnWithName:@"Timestamp" type:StackBaseDateTimeTypeTIMESTAMP];
-            
-            [weakSelf.table addColumns:@[memoColumn, timeStampColumn] completionBlock:^(BOOL success, NSString *responseMessage) {
-                
-                if(success){
-                    
-                    NSLog(@"Table: %@", weakSelf.table);
-                    
-                }else{
-                    
-                    NSLog(@"Column Addition Unsuccessful: %@", responseMessage);
-                    
-                }
-                
-            }];
+
+            NSLog(@"Table: %@", weakSelf.table);
             
         }else{
             
-            NSLog(@"Connection Unsuccessful: %@", responseMessage);
+            NSLog(@"Operation Unsuccessful: %@", responseMessage);
             
         }
         
     }];
     
     return YES;
+    
 }
 
 
