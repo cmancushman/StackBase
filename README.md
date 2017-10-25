@@ -197,7 +197,7 @@ Two points of interest from this snippet:
 
 - We are now using 'weakSelf' via assigning its ```weakSelf.table``` property to the instance of table returned by the completion block. What this does is allow successive completion blocks to call ```weakSelf.table``` without risking a retain cycle or causing the ```.table``` object to be null. 
 
-- StackBaseColumn uses one of three constructors: 
+- The StackBaseColumn instance was declared using ```[StackBaseColumn textColumnWithName:@"Name"]``` StackBaseColumn uses one of three constructors: 
 
 ```objective-c
 [StackBaseColumn textColumnWithName:@"Name"]
