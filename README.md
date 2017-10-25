@@ -268,6 +268,42 @@ Adding the columns has given our table breadth:
 | ------- | ------- | ------- | ------- |
 |   |   |   |   |
 
+It is now time to add depth.
+
+## Adding Rows
+
+Add the following inside of your connection method. 
+
+```objective-c
+[weakSelf.table addRows:@[@{@"Name" : @"Chris", @"Memo" : @"Checking in for the first time. Can you leave a memo Sean?"}, @{@"Name" : @"Sean"}, @{@"Name" : @"Chris", @"Memo" : @"You forgot to leave a memo, Sean."} ] completionBlock:^(BOOL success, NSString *responseMessage) {
+
+    if(success){
+
+        NSLog(@"Operation Successful");
+
+        [weakSelf.table getFirst:3 rowsWithCompletionBlock:^(BOOL success, NSString *responseMessage, NSArray<NSDictionary *> *responseTable) {
+
+            for(NSDictionary *row in responseTable){
+
+                NSLog(@"row %ld: %@", ([responseTable indexOfObject:row] + 1), row);
+
+            }
+
+        }];
+
+    }else{
+
+        NSLog(@"Operation Unsuccessful: %@", responseMessage);
+
+    }
+
+}];
+```
+
+There is a lot of new information in this snippet, so let us cover the important bits:
+
+- ```weakSelf.table addRows:``` This method adds rows to a StackBase table in the format of 
+
 
 ## Requirements
 

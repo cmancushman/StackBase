@@ -20,19 +20,41 @@
     
     __weak typeof(self) weakSelf = self;
     
-    [StackBaseClient createStackBaseTableWithName:@"TestTable" columns:@[[StackBaseColumn textColumnWithName:@"Name"], [StackBaseColumn textColumnWithName:@"Memo"], [StackBaseColumn dateTimeColumnWithName:@"Timestamp" type:StackBaseDateTimeTypeTIMESTAMP]] withCompletionBlock:^(BOOL success, NSString *responseMessage, StackBaseTable *table) {
-       
-        if(success){
+    [StackBaseClient removeStackBaseTableWithName:@"TestTable" fromMySQLServerWithCompletionBlock:^(BOOL success, NSString *responseMessage) {
+        
+        [StackBaseClient createStackBaseTableWithName:@"TestTable" columns:@[[StackBaseColumn textColumnWithName:@"Name"], [StackBaseColumn textColumnWithName:@"Memo"], [StackBaseColumn dateTimeColumnWithName:@"Timestamp" type:StackBaseDateTimeTypeTIMESTAMP]] withCompletionBlock:^(BOOL success, NSString *responseMessage, StackBaseTable *table) {
             
             weakSelf.table = table;
-
-            NSLog(@"Table: %@", weakSelf.table);
             
-        }else{
+            [weakSelf.table deleteAllRowsWithCompletionBlock:^(BOOL success, NSString *responseMessage) {
+                
+                [weakSelf.table addRows:@[@{@"Name" : @"Chris", @"Memo" : @"Checking in for the first time. Can you leave a memo Sean?"}, @{@"Name" : @"Sean"}, @{@"Name" : @"Chris", @"Memo" : @"You forgot to leave a memo, Sean."} ] completionBlock:^(BOOL success, NSString *responseMessage) {
+                    
+                    if(success){
+                        
+                        NSLog(@"Operation Successful");
+                        
+                        [weakSelf.table getFirst:3 rowsWithCompletionBlock:^(BOOL success, NSString *responseMessage, NSArray<NSDictionary *> *responseTable) {
+                            
+                            for(NSDictionary *row in responseTable){
+                                
+                                NSLog(@"row %ld: %@", ([responseTable indexOfObject:row] + 1), row);
+                                
+                            }
+                            
+                        }];
+                        
+                    }else{
+                        
+                        NSLog(@"Operation Unsuccessful: %@", responseMessage);
+                        
+                    }
+                    
+                }];
+                
+            }];
             
-            NSLog(@"Operation Unsuccessful: %@", responseMessage);
-            
-        }
+        }];
         
     }];
     
