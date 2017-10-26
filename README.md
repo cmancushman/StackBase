@@ -30,6 +30,10 @@ To be brief, Stackbase brings developers the following benefits:
 
 Conversely, since StackBase is in early development it is not currently scalable. Enjoy it as a free service, but do not use it commercially (yet). This is obviously a ***big*** limitation, and it is the immediate objective of StackBase to fix this and establish a billed tier.
 
+## Requirements
+
+- Xcode Version 8.0.0 or better
+
 ## Installation
 
 - StackBase is available through CocoaPods. To install it, simply add the following line to your Podfile:
@@ -186,9 +190,9 @@ withCompletionBlock:^(BOOL success, NSString *responseMessage, StackBaseTable *t
 ```
 Two points of interest from this snippet:
 
-- We are now using 'weakSelf' via assigning its ```weakSelf.table``` property to the instance of table returned by the completion block. What this does is allow successive completion blocks to call ```weakSelf.table``` without risking a retain cycle or causing the ```.table``` object to be null. 
+1. We are now using 'weakSelf' via assigning its ```weakSelf.table``` property to the instance of table returned by the completion block. What this does is allow successive completion blocks to call ```weakSelf.table``` without risking a retain cycle or causing the ```.table``` object to be null. 
 
-- StackBaseColumn can only be properly instantiated using one of three constructors: 
+2. StackBaseColumn can only be properly instantiated using one of three constructors: 
 ```objective-c
 +(instancetype)textColumnWithName:(NSString *)name;
 +(instancetype)numericColumnWithName:(NSString *)name shouldBeUnsigned:(BOOL)isUnsigned;
@@ -305,17 +309,17 @@ You should receive the following output:
 
 There is a lot of new information in this snippet, so let us cover the important bits:
 
-1. ```weakSelf.table addRows:``` This method adds rows to a StackBase table by passing an array of dictionaries. Each dictionary represents a row to be added. In this case, we added the following rows: 
+1. ```weakSelf.table addRows:``` adds rows to a StackBase table by passing an array of dictionaries. Each dictionary represents a row to be added. In this case, we added the following rows: 
 ```objective-c
 @{@"Name" : @"Chris", @"Memo" : @"Checking in for the first time. Can you leave a memo Sean?"}
 @{@"Name" : @"Sean"}
 @{@"Name" : @"Chris", @"Memo" : @"You forgot to leave a memo, Sean."}
 ``` 
-Each dictionary's keys and objects represent the column names and the data to be aissigned to them, respectively. In this case, we are only using the 'Name' and 'Memo' columns to create rows. This is because 'id' auto-increments, which means that the client does not decide its value. Sending data to this column consequently does nothing. Additionally, 'Timestamp' exhibits a similar behavior; it was declared as column type ```StackBaseDateTimeTypeTIMESTAMP``` and timestamps are automatically assigned to the precise time the row was posted, so they do not accept client-based data either. 
+Each dictionary's keys and values represent the column names and the data to be aissigned to them, respectively. In this case, we are only using the 'Name' and 'Memo' columns to create rows. This is because 'id' auto-increments, which means that the client does not decide its value. Sending data to this column consequently does nothing. Additionally, 'Timestamp' exhibits a similar behavior; it was declared as column type ```StackBaseDateTimeTypeTIMESTAMP``` and timestamps are automatically assigned to the precise time the row was posted, so they do not accept client-based data either. 
 
 Note that for each row created, the columns being assigned do not have to be the same. In the second row, only the 'Name' column is fed data, while the other two given rows assign data to both 'Name' and 'Memo'
 
-2. ```weakSelf.table getFirst:3 rowsWithCompletionBlock:``` It is impractical to include all of a table's rows when printing, as an SQL table can handle billions of rows. StackBase 'getRow' methods exist to retrieve rows that match certain conditions, in this case limiting return data to the first three rows. More detailed searches will be explained later, but their universal purpose is to retrieve a smaller, organized portion of our data. Once retrieved, our rows are returned as an array of dictionaries called 'responseTable,' following the same structure as rows being added. They can then be printed:
+2. ```weakSelf.table getFirst:3 rowsWithCompletionBlock:``` retrieves the first three rows from your StackBase table. It is impractical to include all of a table's records when printing, as an SQL table can handle billions of rows. The StackBase 'getRow' methods exist to fetch rows that match certain conditions, in this case limiting return data to the first three rows (rows that have the smallest three 'id' values). More detailed conditions will be explained later, but their universal purpose is to obtain a smaller, organized portion of a table's data. Once filtered, our rows are returned as an array of dictionaries called 'responseTable,' following the same structure as rows being added. They can then be printed as so:
 ```objective-c
 for(NSDictionary *row in responseTable){
 
@@ -356,10 +360,15 @@ And as we can see below, Sean's memo has been added:
 
 <img src='https://user-images.githubusercontent.com/11083444/32018884-894fd9be-b9f5-11e7-8581-ae492da269af.png'>
 
+Once again, there is important information to cover. 
 
-## Requirements
+1. ```[StackBaseCondition columnWithName:@"Name" isEqualTo:@"Sean"]```
 
-- Xcode Version 8.0.0 or better
+2. ```weakSelf.table updateRowsThatSatisfyTheCondition:``` changes the values of rows that match a passed StackBaseCondition. Rows are updated in the format of a single dicitonary; every row will be given those key-value bindings. In this case, we assigned all rows that matched our condition the following binding:
+```objective-c
+@{@"Memo" : @"Hey Chris! This is my first memo. Am I doing this right?"}
+```
+All rows that match the StackBaseCondition will have their 'Memo' field changed to 'Hey Chris! This is my first memo. Am I doing this right?' This intended result is manifested when we see row 2 change its memo field.
 
 ## Author
 
