@@ -362,7 +362,7 @@ And as we can see below, Sean's memo has been added:
 
 Once again, there is important information to cover. 
 
-1. ```[StackBaseCondition columnWithName:@"Name" isEqualTo:@"Sean"]```
+1. ```[StackBaseCondition columnWithName:@"Name" isEqualTo:@"Sean"]``` is an instance of StackBaseCondition. StackBaseCondition is a crucial class that creates a filter for rows to be retrieved, altered, or deleted. There are several variants of StackBaseCondition and these variants can be combined in unique ways. The use of StackBaseCondition allows for unions and intersections as well as fulltext searches. 
 
 2. ```weakSelf.table updateRowsThatSatisfyTheCondition:``` changes the values of rows that match a passed StackBaseCondition. Rows are updated in the format of a single dicitonary; every row will be given those key-value bindings. In this case, we assigned all rows that matched our condition the following binding:
 ```objective-c
