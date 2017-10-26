@@ -370,6 +370,32 @@ Once again, there is important information to cover.
 ```
 All rows that match the StackBaseCondition will have their 'Memo' field changed to 'Hey Chris! This is my first memo. Am I doing this right?' This intended result is manifested when we see row 2 change its memo field.
 
+## Deleting Rows
+
+Now that Sean has corrected his post, we can remove the third record in which Chris tells Sean that he forgot to leave a memo.
+```objective-c
+[weakSelf.table deleteRowsThatSatisfyTheCondition:[StackBaseCondition columnWithName:@"id" isEqualTo:@3] withCompletionBlock:^(BOOL success, NSString *responseMessage) {
+
+    if(success){
+
+        [weakSelf.table getFirst:3 rowsWithCompletionBlock:^(BOOL success, NSString *responseMessage, NSArray<NSDictionary *> *responseTable) {
+
+            for(NSDictionary *row in responseTable){
+
+                NSLog(@"row %ld: %@", ([responseTable indexOfObject:row] + 1), row);
+
+            }
+
+        }];
+
+    }else{
+
+        NSLog(@"Update Unsuccessful: %@", responseMessage);
+
+    }
+
+}];
+```
 ## Author
 
 Chris, christopher.cushman@richmond.edu

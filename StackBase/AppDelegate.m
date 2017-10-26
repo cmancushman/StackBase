@@ -26,7 +26,7 @@
 
             weakSelf.table = table;
             
-            [weakSelf.table updateRowsThatSatisfyTheCondition:[StackBaseCondition columnWithName:@"Name" isEqualTo:@"Sean"] withFieldsAndValues:@{@"Memo" : @"Hey Chris! This is my first memo. Am I doing this right?"} completionBlock:^(BOOL success, NSString *responseMessage) {
+            [weakSelf.table deleteRowsThatSatisfyTheCondition:[StackBaseCondition columnWithName:@"id" isEqualTo:@3] withCompletionBlock:^(BOOL success, NSString *responseMessage) {
                 
                 if(success){
                     
