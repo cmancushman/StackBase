@@ -19,42 +19,7 @@
     // Override point for customization after application launch.
     
     __weak typeof(self) weakSelf = self;
-        
-        [StackBaseClient connectToStackBaseTableWithName:@"TestTable" withCompletionBlock:^(BOOL success, NSString *responseMessage, StackBaseTable *table) {
-            
-            if(success){
 
-            weakSelf.table = table;
-            
-            [weakSelf.table deleteRowsThatSatisfyTheCondition:[StackBaseCondition columnWithName:@"id" isEqualTo:@3] withCompletionBlock:^(BOOL success, NSString *responseMessage) {
-                
-                if(success){
-                    
-                    [weakSelf.table getFirst:3 rowsWithCompletionBlock:^(BOOL success, NSString *responseMessage, NSArray<NSDictionary *> *responseTable) {
-                        
-                        for(NSDictionary *row in responseTable){
-                            
-                            NSLog(@"row %ld: %@", ([responseTable indexOfObject:row] + 1), row);
-                            
-                        }
-                        
-                    }];
-                    
-                }else{
-                    
-                    NSLog(@"Update Unsuccessful: %@", responseMessage);
-                    
-                }
-                
-            }];
-                
-            }else{
-                
-                NSLog(@"Operation Unsuccessful: %@", responseMessage);
-                
-            }
-            
-        }];
     
     return YES;
     

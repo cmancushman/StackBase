@@ -146,7 +146,7 @@
  * @brief Removes the records in your table that match the given condition parameter
  * @param condition a paremeter that must be met in order for a row to be removed
  */
--(void)deleteRowsThatSatisfyTheCondition:(StackBaseCondition *)condition withCompletionBlock:(StackBaseEditCompletion) compBlock;
+-(void)deleteRowsThatSatisfyTheCondition:(StackBaseCondition *)condition completionBlock:(StackBaseEditCompletion) compBlock;
 
 /*!
  * @brief Removes all records from your table
