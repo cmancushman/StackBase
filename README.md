@@ -408,4 +408,4 @@ Now that Sean has corrected his post, we can remove the third record in which Ch
 
 ## License
 
-StackBase is available under the MIT license. See the LICENSE file for more info.
+StackBase is available under the MIT license. See the [LICENSE file](https://github.com/cmancushman/StackBase/blob/master/LICENSE) for more info.
