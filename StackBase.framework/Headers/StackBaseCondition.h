@@ -19,7 +19,7 @@
  * @parameter conditions an array of the conditions being tested
  * @return the union of all conditions passed in the array
  */
-+(instancetype) oneOfTheseconditionsAreMet:(NSArray<StackBaseCondition *> *)conditions;
++(instancetype) oneOfTheseConditionsAreMet:(NSArray<StackBaseCondition *> *)conditions;
 
 
 /*!

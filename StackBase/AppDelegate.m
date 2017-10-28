@@ -19,7 +19,11 @@
     // Override point for customization after application launch.
     
     __weak typeof(self) weakSelf = self;
+    
+    StackBaseCondition *idIsBigEnough = [StackBaseCondition columnWithName:@"id" isGreaterThan:@10];
 
+
+    
     
     return YES;
     
