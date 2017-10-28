@@ -6,7 +6,6 @@
 [![License](https://img.shields.io/cocoapods/l/StackBase.svg?style=flat)](http://cocoapods.org/pods/StackBase)
 [![Platform](https://img.shields.io/cocoapods/p/StackBase.svg?style=flat)](http://cocoapods.org/pods/StackBase)
 
-## STATUS: INCOMPLETE (Come Back in a Week)
 
 ## An Objective-C Backend Solution 
 
