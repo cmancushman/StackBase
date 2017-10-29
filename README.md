@@ -397,6 +397,11 @@ Now that Sean has corrected his post, we can remove the third record in which Ch
 ```
 <img src = 'https://user-images.githubusercontent.com/11083444/32042379-7cc625e2-ba61-11e7-85bc-9862a5a96001.png'>
 
+## What's Next?
+
+At this point, you've designed a functioning SQL table. There's still more to learn, though! Go to the [wiki](https://github.com/cmancushman/StackBase/wiki) for the rest of this tutorial. 
+
+
 ## Author
 
 ### Chris Cushman
