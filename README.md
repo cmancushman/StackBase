@@ -39,7 +39,7 @@ Conversely, since StackBase is in early development it is not currently scalable
 ```ruby
 pod 'StackBase'
 ```
-- If you do not wish to use CocoaPods, you can download the framework [directly](https://github.com/cmancushman/StackBaseFramework/blob/master/StackBase.zip). Unzip the file and add the derived .framework file to your project.
+- If you do not wish to use CocoaPods, you can download the framework [directly](https://github.com/cmancushman/StackBase/blob/master/StackBase.zip). Unzip the file and add the derived .framework file to your project.
 
 - To use the example project, clone the repo or download it as a zip file. CocoaPods is not necessary.
 
