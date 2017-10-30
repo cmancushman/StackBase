@@ -18,6 +18,7 @@
 		122BC77B1F9B2A1100B14FBD /* StackBaseUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 122BC77A1F9B2A1100B14FBD /* StackBaseUITests.m */; };
 		122BC78C1F9B2ADA00B14FBD /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 122BC78A1F9B2ADA00B14FBD /* LICENSE */; };
 		122BC78D1F9B2ADA00B14FBD /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 122BC78B1F9B2ADA00B14FBD /* README.md */; };
+		12F8B46A1FA7813400DE4034 /* MemoTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F8B4691FA7813400DE4034 /* MemoTable.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,8 @@
 		122BC77C1F9B2A1100B14FBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		122BC78A1F9B2ADA00B14FBD /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		122BC78B1F9B2ADA00B14FBD /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		12F8B4681FA7813400DE4034 /* MemoTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoTable.h; sourceTree = "<group>"; };
+		12F8B4691FA7813400DE4034 /* MemoTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemoTable.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +115,7 @@
 			children = (
 				122BC7581F9B2A1100B14FBD /* AppDelegate.h */,
 				122BC7591F9B2A1100B14FBD /* AppDelegate.m */,
+				12F8B46B1FA7813800DE4034 /* MemoTable */,
 				122BC75B1F9B2A1100B14FBD /* ViewController.h */,
 				122BC75C1F9B2A1100B14FBD /* ViewController.m */,
 				122BC75E1F9B2A1100B14FBD /* Main.storyboard */,
@@ -148,6 +152,15 @@
 				122BC77C1F9B2A1100B14FBD /* Info.plist */,
 			);
 			path = StackBaseUITests;
+			sourceTree = "<group>";
+		};
+		12F8B46B1FA7813800DE4034 /* MemoTable */ = {
+			isa = PBXGroup;
+			children = (
+				12F8B4681FA7813400DE4034 /* MemoTable.h */,
+				12F8B4691FA7813400DE4034 /* MemoTable.m */,
+			);
+			name = MemoTable;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,6 +301,7 @@
 				122BC75A1F9B2A1100B14FBD /* AppDelegate.m in Sources */,
 				122BC78D1F9B2ADA00B14FBD /* README.md in Sources */,
 				122BC7571F9B2A1100B14FBD /* main.m in Sources */,
+				12F8B46A1FA7813400DE4034 /* MemoTable.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

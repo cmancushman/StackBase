@@ -401,7 +401,6 @@ Now that Sean has corrected his post, we can remove the third record in which Ch
 
 At this point, you've designed a functioning SQL table. There's still more to learn, though! Go to the [wiki](https://github.com/cmancushman/StackBase/wiki) for the rest of this tutorial. 
 
-
 ## Author
 
 ### Chris Cushman
