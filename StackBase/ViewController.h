@@ -7,8 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Memos.h"
+#import "TopBar.h"
+#import "AddMemoController.h"
 
-@interface ViewController : UIViewController
+
+
+
+
+
+@interface ViewController : UIViewController <MemoDelegate, AddMemoDelegate, AddMemoControllerDelegate>
+
+
+@property Memos *memos;
+
+@property TopBar *topBar;
 
 
 @end

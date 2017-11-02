@@ -27,7 +27,7 @@
 /*!
  * @brief Connects your table to a pre-existing MySQL table in your backend and populates its columns and settings using that table's information
  */
--(void)connectToServerWithCompletionBlock:(StackBaseQueryCompletion)compBlock;
+-(void)connectToServerWithCompletionBlock:(StackBaseEditCompletion)compBlock;
 
 
 /*!

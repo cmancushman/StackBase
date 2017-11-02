@@ -7,8 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "StackBaseNumericType.h"
-#import "StackBaseTextType.h"
+
 #import "StackBaseDateTimeType.h"
 
 

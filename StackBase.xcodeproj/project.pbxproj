@@ -7,18 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1214C10F1FAB336F00ADA1EF /* AddMemoButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1214C10E1FAB336F00ADA1EF /* AddMemoButton.m */; };
+		1214C1121FAB347E00ADA1EF /* AddMemoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1214C1111FAB347E00ADA1EF /* AddMemoView.m */; };
+		1214C1151FAB359000ADA1EF /* AddMemoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1214C1141FAB359000ADA1EF /* AddMemoController.m */; };
+		1214C1181FAB8CF600ADA1EF /* DataEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 1214C1171FAB8CF600ADA1EF /* DataEntry.m */; };
+		1214C11A1FAB97EE00ADA1EF /* ViewConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 1214C1191FAB97EE00ADA1EF /* ViewConstants.m */; };
 		122AD56F1F9D088C0079595A /* StackBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 122AD56E1F9D088C0079595A /* StackBase.framework */; };
 		122BC7571F9B2A1100B14FBD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 122BC7561F9B2A1100B14FBD /* main.m */; };
 		122BC75A1F9B2A1100B14FBD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 122BC7591F9B2A1100B14FBD /* AppDelegate.m */; };
 		122BC75D1F9B2A1100B14FBD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 122BC75C1F9B2A1100B14FBD /* ViewController.m */; };
-		122BC7601F9B2A1100B14FBD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 122BC75E1F9B2A1100B14FBD /* Main.storyboard */; };
 		122BC7621F9B2A1100B14FBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 122BC7611F9B2A1100B14FBD /* Assets.xcassets */; };
 		122BC7651F9B2A1100B14FBD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 122BC7631F9B2A1100B14FBD /* LaunchScreen.storyboard */; };
 		122BC7701F9B2A1100B14FBD /* StackBaseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 122BC76F1F9B2A1100B14FBD /* StackBaseTests.m */; };
 		122BC77B1F9B2A1100B14FBD /* StackBaseUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 122BC77A1F9B2A1100B14FBD /* StackBaseUITests.m */; };
 		122BC78C1F9B2ADA00B14FBD /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 122BC78A1F9B2ADA00B14FBD /* LICENSE */; };
 		122BC78D1F9B2ADA00B14FBD /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 122BC78B1F9B2ADA00B14FBD /* README.md */; };
+		123D674C1FA78E8500718C51 /* MemoTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 123D674B1FA78E8400718C51 /* MemoTableDataSource.m */; };
+		123D67521FA8954F00718C51 /* FrameCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 123D67511FA8954F00718C51 /* FrameCalculator.m */; };
+		123D67551FA96C7D00718C51 /* Memos.m in Sources */ = {isa = PBXBuildFile; fileRef = 123D67541FA96C7D00718C51 /* Memos.m */; };
+		123D67581FA985AE00718C51 /* TopBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 123D67571FA985AE00718C51 /* TopBar.m */; };
+		123D675C1FAA5C6100718C51 /* AddButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 123D675B1FAA5C6100718C51 /* AddButton.png */; };
+		123D675E1FAA5C6700718C51 /* AddButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 123D675D1FAA5C6700718C51 /* AddButton@2x.png */; };
 		12F8B46A1FA7813400DE4034 /* MemoTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F8B4691FA7813400DE4034 /* MemoTable.m */; };
+		12F8B46E1FA788E300DE4034 /* SetupSpinner.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F8B46D1FA788E300DE4034 /* SetupSpinner.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +50,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1214C10D1FAB336F00ADA1EF /* AddMemoButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddMemoButton.h; sourceTree = "<group>"; };
+		1214C10E1FAB336F00ADA1EF /* AddMemoButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddMemoButton.m; sourceTree = "<group>"; };
+		1214C1101FAB347E00ADA1EF /* AddMemoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddMemoView.h; sourceTree = "<group>"; };
+		1214C1111FAB347E00ADA1EF /* AddMemoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddMemoView.m; sourceTree = "<group>"; };
+		1214C1131FAB359000ADA1EF /* AddMemoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddMemoController.h; sourceTree = "<group>"; };
+		1214C1141FAB359000ADA1EF /* AddMemoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddMemoController.m; sourceTree = "<group>"; };
+		1214C1161FAB8CF600ADA1EF /* DataEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataEntry.h; sourceTree = "<group>"; };
+		1214C1171FAB8CF600ADA1EF /* DataEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataEntry.m; sourceTree = "<group>"; };
+		1214C1191FAB97EE00ADA1EF /* ViewConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewConstants.m; sourceTree = "<group>"; };
 		122AD56E1F9D088C0079595A /* StackBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = StackBase.framework; sourceTree = SOURCE_ROOT; };
 		122BC7521F9B2A1100B14FBD /* StackBase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StackBase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		122BC7561F9B2A1100B14FBD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -46,7 +66,6 @@
 		122BC7591F9B2A1100B14FBD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		122BC75B1F9B2A1100B14FBD /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		122BC75C1F9B2A1100B14FBD /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		122BC75F1F9B2A1100B14FBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		122BC7611F9B2A1100B14FBD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		122BC7641F9B2A1100B14FBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		122BC7661F9B2A1100B14FBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -58,8 +77,21 @@
 		122BC77C1F9B2A1100B14FBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		122BC78A1F9B2ADA00B14FBD /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		122BC78B1F9B2ADA00B14FBD /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		123D674A1FA78E8400718C51 /* MemoTableDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoTableDataSource.h; sourceTree = "<group>"; };
+		123D674B1FA78E8400718C51 /* MemoTableDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemoTableDataSource.m; sourceTree = "<group>"; };
+		123D67501FA8954F00718C51 /* FrameCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FrameCalculator.h; sourceTree = "<group>"; };
+		123D67511FA8954F00718C51 /* FrameCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FrameCalculator.m; sourceTree = "<group>"; };
+		123D67531FA96C7D00718C51 /* Memos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Memos.h; sourceTree = "<group>"; };
+		123D67541FA96C7D00718C51 /* Memos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Memos.m; sourceTree = "<group>"; };
+		123D67561FA985AE00718C51 /* TopBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopBar.h; sourceTree = "<group>"; };
+		123D67571FA985AE00718C51 /* TopBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopBar.m; sourceTree = "<group>"; };
+		123D675A1FA9875100718C51 /* ViewConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewConstants.h; sourceTree = "<group>"; };
+		123D675B1FAA5C6100718C51 /* AddButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AddButton.png; sourceTree = "<group>"; };
+		123D675D1FAA5C6700718C51 /* AddButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AddButton@2x.png"; sourceTree = "<group>"; };
 		12F8B4681FA7813400DE4034 /* MemoTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoTable.h; sourceTree = "<group>"; };
 		12F8B4691FA7813400DE4034 /* MemoTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemoTable.m; sourceTree = "<group>"; };
+		12F8B46C1FA788E300DE4034 /* SetupSpinner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetupSpinner.h; sourceTree = "<group>"; };
+		12F8B46D1FA788E300DE4034 /* SetupSpinner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetupSpinner.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +120,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1214C11B1FABA6BB00ADA1EF /* DataEntry */ = {
+			isa = PBXGroup;
+			children = (
+				1214C1161FAB8CF600ADA1EF /* DataEntry.h */,
+				1214C1171FAB8CF600ADA1EF /* DataEntry.m */,
+			);
+			name = DataEntry;
+			sourceTree = "<group>";
+		};
 		122BC7491F9B2A1100B14FBD = {
 			isa = PBXGroup;
 			children = (
@@ -115,10 +156,15 @@
 			children = (
 				122BC7581F9B2A1100B14FBD /* AppDelegate.h */,
 				122BC7591F9B2A1100B14FBD /* AppDelegate.m */,
-				12F8B46B1FA7813800DE4034 /* MemoTable */,
+				123D675A1FA9875100718C51 /* ViewConstants.h */,
+				1214C1191FAB97EE00ADA1EF /* ViewConstants.m */,
 				122BC75B1F9B2A1100B14FBD /* ViewController.h */,
 				122BC75C1F9B2A1100B14FBD /* ViewController.m */,
-				122BC75E1F9B2A1100B14FBD /* Main.storyboard */,
+				123D67591FA985B400718C51 /* Top Bar */,
+				1214C11B1FABA6BB00ADA1EF /* DataEntry */,
+				12F8B46B1FA7813800DE4034 /* Memos */,
+				12F8B46C1FA788E300DE4034 /* SetupSpinner.h */,
+				12F8B46D1FA788E300DE4034 /* SetupSpinner.m */,
 				122BC7611F9B2A1100B14FBD /* Assets.xcassets */,
 				122BC7631F9B2A1100B14FBD /* LaunchScreen.storyboard */,
 				122BC7661F9B2A1100B14FBD /* Info.plist */,
@@ -130,6 +176,8 @@
 		122BC7551F9B2A1100B14FBD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				123D675B1FAA5C6100718C51 /* AddButton.png */,
+				123D675D1FAA5C6700718C51 /* AddButton@2x.png */,
 				122AD56E1F9D088C0079595A /* StackBase.framework */,
 				122BC7561F9B2A1100B14FBD /* main.m */,
 			);
@@ -154,13 +202,42 @@
 			path = StackBaseUITests;
 			sourceTree = "<group>";
 		};
-		12F8B46B1FA7813800DE4034 /* MemoTable */ = {
+		123D67591FA985B400718C51 /* Top Bar */ = {
 			isa = PBXGroup;
 			children = (
+				123D67561FA985AE00718C51 /* TopBar.h */,
+				123D67571FA985AE00718C51 /* TopBar.m */,
+				123D67621FAA603B00718C51 /* Add Memo */,
+			);
+			name = "Top Bar";
+			sourceTree = "<group>";
+		};
+		123D67621FAA603B00718C51 /* Add Memo */ = {
+			isa = PBXGroup;
+			children = (
+				1214C10D1FAB336F00ADA1EF /* AddMemoButton.h */,
+				1214C10E1FAB336F00ADA1EF /* AddMemoButton.m */,
+				1214C1131FAB359000ADA1EF /* AddMemoController.h */,
+				1214C1141FAB359000ADA1EF /* AddMemoController.m */,
+				1214C1101FAB347E00ADA1EF /* AddMemoView.h */,
+				1214C1111FAB347E00ADA1EF /* AddMemoView.m */,
+			);
+			name = "Add Memo";
+			sourceTree = "<group>";
+		};
+		12F8B46B1FA7813800DE4034 /* Memos */ = {
+			isa = PBXGroup;
+			children = (
+				123D67531FA96C7D00718C51 /* Memos.h */,
+				123D67541FA96C7D00718C51 /* Memos.m */,
 				12F8B4681FA7813400DE4034 /* MemoTable.h */,
 				12F8B4691FA7813400DE4034 /* MemoTable.m */,
+				123D674A1FA78E8400718C51 /* MemoTableDataSource.h */,
+				123D674B1FA78E8400718C51 /* MemoTableDataSource.m */,
+				123D67501FA8954F00718C51 /* FrameCalculator.h */,
+				123D67511FA8954F00718C51 /* FrameCalculator.m */,
 			);
-			name = MemoTable;
+			name = Memos;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,8 +348,9 @@
 			files = (
 				122BC7651F9B2A1100B14FBD /* LaunchScreen.storyboard in Resources */,
 				122BC7621F9B2A1100B14FBD /* Assets.xcassets in Resources */,
+				123D675E1FAA5C6700718C51 /* AddButton@2x.png in Resources */,
 				122BC78C1F9B2ADA00B14FBD /* LICENSE in Resources */,
-				122BC7601F9B2A1100B14FBD /* Main.storyboard in Resources */,
+				123D675C1FAA5C6100718C51 /* AddButton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,10 +375,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				123D674C1FA78E8500718C51 /* MemoTableDataSource.m in Sources */,
+				1214C10F1FAB336F00ADA1EF /* AddMemoButton.m in Sources */,
+				123D67521FA8954F00718C51 /* FrameCalculator.m in Sources */,
+				1214C11A1FAB97EE00ADA1EF /* ViewConstants.m in Sources */,
 				122BC75D1F9B2A1100B14FBD /* ViewController.m in Sources */,
+				1214C1121FAB347E00ADA1EF /* AddMemoView.m in Sources */,
 				122BC75A1F9B2A1100B14FBD /* AppDelegate.m in Sources */,
 				122BC78D1F9B2ADA00B14FBD /* README.md in Sources */,
+				123D67581FA985AE00718C51 /* TopBar.m in Sources */,
+				1214C1181FAB8CF600ADA1EF /* DataEntry.m in Sources */,
 				122BC7571F9B2A1100B14FBD /* main.m in Sources */,
+				123D67551FA96C7D00718C51 /* Memos.m in Sources */,
+				12F8B46E1FA788E300DE4034 /* SetupSpinner.m in Sources */,
+				1214C1151FAB359000ADA1EF /* AddMemoController.m in Sources */,
 				12F8B46A1FA7813400DE4034 /* MemoTable.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -337,14 +425,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		122BC75E1F9B2A1100B14FBD /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				122BC75F1F9B2A1100B14FBD /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		122BC7631F9B2A1100B14FBD /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

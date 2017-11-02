@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/StackBase.h</key>
 		<data>
-		S44t2TbXSwxqgZ0jANAxaZo72ZE=
+		3FUDc/mM//B95a8vi4Q3GY3ijWQ=
 		</data>
 		<key>Headers/StackBaseClause.h</key>
 		<data>
@@ -22,7 +22,7 @@
 		</data>
 		<key>Headers/StackBaseColumnTypes.h</key>
 		<data>
-		p0O9oxfIVovAJTLzEA4qwTxINxY=
+		dg04+ne/ykRsy2dbPTiKZ8ylZxU=
 		</data>
 		<key>Headers/StackBaseCompletionBlocks.h</key>
 		<data>
@@ -30,23 +30,15 @@
 		</data>
 		<key>Headers/StackBaseCondition.h</key>
 		<data>
-		EgAIQmkOm3qsGaaAh3WKpeKOAio=
+		tGKGoNpqonJjXYn7qdkke9dGnrY=
 		</data>
 		<key>Headers/StackBaseDateTimeType.h</key>
 		<data>
-		UGOQPZyTzRF8U/tIzW1+tL7yw4Q=
-		</data>
-		<key>Headers/StackBaseNumericType.h</key>
-		<data>
-		NB6lbFAdCw5O5rYSMcNlqjjgAF0=
+		WU94ytR4uaML2MfO0KjM7MYW7FE=
 		</data>
 		<key>Headers/StackBaseTable.h</key>
 		<data>
-		Eajiw47MgULngFkpc8DkXUUtz/s=
-		</data>
-		<key>Headers/StackBaseTextType.h</key>
-		<data>
-		UIw2phXBPl8BatPFqr2eST3+ZZs=
+		LMIAY4UURDRvgJKDDv+cmXHG7ik=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -62,7 +54,7 @@
 		</data>
 		<key>StackBase.podspec</key>
 		<data>
-		JQQYHolrCzacJHZNZhPW8vORO5A=
+		YKcpfw/D3A7501DpWF8Rri5kOJo=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -71,11 +63,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			S44t2TbXSwxqgZ0jANAxaZo72ZE=
+			3FUDc/mM//B95a8vi4Q3GY3ijWQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			51Hacc/zp0bL5acwDbR+FMfajFjHg2ooee6GxtEeQsk=
+			SOAxHnOoDQNP1BA7+/ky0yDaeGDYCYHYk+i544Lb4vc=
 			</data>
 		</dict>
 		<key>Headers/StackBaseClause.h</key>
@@ -115,11 +107,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			p0O9oxfIVovAJTLzEA4qwTxINxY=
+			dg04+ne/ykRsy2dbPTiKZ8ylZxU=
 			</data>
 			<key>hash2</key>
 			<data>
-			3n/lNYlJOozgoJTFbPQvqK8ejfl11l5nrasCSV5S13w=
+			xG5nj9u5pd8FEc4Bvd2LzQeFSx0tU28esdbgeCpiYkU=
 			</data>
 		</dict>
 		<key>Headers/StackBaseCompletionBlocks.h</key>
@@ -137,55 +129,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			EgAIQmkOm3qsGaaAh3WKpeKOAio=
+			tGKGoNpqonJjXYn7qdkke9dGnrY=
 			</data>
 			<key>hash2</key>
 			<data>
-			ZHUU8H8WrQhkKwzmtTLtnO6sSEt7V56FGpy/hpwVOeM=
+			+eIzDWr/YExrKgp22tcrqC0p8s3mO5S/BHc8MMEPygA=
 			</data>
 		</dict>
 		<key>Headers/StackBaseDateTimeType.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			UGOQPZyTzRF8U/tIzW1+tL7yw4Q=
+			WU94ytR4uaML2MfO0KjM7MYW7FE=
 			</data>
 			<key>hash2</key>
 			<data>
-			voT0eN+aEi4kNBYE31COCu/r3iKAJlYmka3Eb2YLFUA=
-			</data>
-		</dict>
-		<key>Headers/StackBaseNumericType.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			NB6lbFAdCw5O5rYSMcNlqjjgAF0=
-			</data>
-			<key>hash2</key>
-			<data>
-			4XfgcSWkb86SN81UaNJCrKRlfKF8fjJU2J1Cicspn0s=
+			gO4ZKlcgJMLHplCvwp4Gg0Mxg+DUy5i+PNmIYulG+x0=
 			</data>
 		</dict>
 		<key>Headers/StackBaseTable.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Eajiw47MgULngFkpc8DkXUUtz/s=
+			LMIAY4UURDRvgJKDDv+cmXHG7ik=
 			</data>
 			<key>hash2</key>
 			<data>
-			SALaPHHlfFbAicdLMY30pRmarHYVCXfo6pqJkJWiml0=
-			</data>
-		</dict>
-		<key>Headers/StackBaseTextType.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			UIw2phXBPl8BatPFqr2eST3+ZZs=
-			</data>
-			<key>hash2</key>
-			<data>
-			4DE0jXSJWawCMuGsIUj2C/uFuZzKbTNWuoCU51xNGPM=
+			wdx+Ivdn4iYROWKWYIzoNi1NVWptsLNcCHB67DaqKpM=
 			</data>
 		</dict>
 		<key>LICENSE</key>
@@ -214,11 +184,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			JQQYHolrCzacJHZNZhPW8vORO5A=
+			YKcpfw/D3A7501DpWF8Rri5kOJo=
 			</data>
 			<key>hash2</key>
 			<data>
-			Z7lpukM8u+hR/TN6rclcMNT61S5/DtRpmadRVBoA3y4=
+			679ivzp04bZPUtSPEztp25BLT2avpeQUO5vyOCBWYdU=
 			</data>
 		</dict>
 	</dict>

@@ -44,9 +44,10 @@
  * @brief Condition that tests whether both conditions are met
  * @parameter condition1 the first condition
  * @parameter columnNames the columns to order the resulting rows by
+ * @parameter descending whether or not the columns are returned in order of highest value columns to lowest 
  * @return a condition with resulting rows ordered by given columns
  */
-+(instancetype) condition:(StackBaseCondition *)condition1 isOrderedBy:(NSArray<NSString *> *)columnNames;
++(instancetype) condition:(StackBaseCondition *)condition1 isOrderedBy:(NSArray<NSString *> *)columnNames descending:(BOOL)descending;
 
 
 /*!

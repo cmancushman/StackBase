@@ -14,8 +14,6 @@
 #import <StackBase/StackBaseColumn.h>
 #import <StackBase/StackBaseCompletionBlocks.h>
 #import <StackBase/StackBaseColumnTypes.h>
-#import <StackBase/StackBaseNumericType.h>
-#import <StackBase/StackBaseTextType.h>
 #import <StackBase/StackBaseDateTimeType.h>
 
 

@@ -7,14 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@import StackBase;
+#import "ViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
-@property StackBaseTable *table;
 
 @end
 

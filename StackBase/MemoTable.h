@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MemoTable : UITableView
+
+
+
+@interface MemoTable : UITableView 
+
+
+-(void)unhide;
+
 
 @end

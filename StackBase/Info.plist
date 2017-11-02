@@ -20,10 +20,12 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>StackBase_API_KEY</key>
+	<string>example_api_key</string>
+	<key>StackBase_SECRET_KEY</key>
+	<string>example_api_password_this_is_super_secret</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
-	<key>UIMainStoryboardFile</key>
-	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
@@ -41,9 +43,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-    <key>StackBase_API_KEY</key>
-    <string>example_api_key</string>
-    <key>StackBase_SECRET_KEY</key>
-    <string>example_api_password_this_is_super_secret</string>
 </dict>
 </plist>

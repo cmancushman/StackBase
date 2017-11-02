@@ -18,12 +18,15 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    __weak typeof(self) weakSelf = self;
+    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
     
-    StackBaseCondition *idIsBigEnough = [StackBaseCondition columnWithName:@"id" isGreaterThan:@10];
-
-
+    ViewController *viewController = [[ViewController alloc] init];
     
+    viewController.view.backgroundColor = [UIColor whiteColor];
+        
+    self.window.rootViewController = viewController;
+    
+    [self.window makeKeyAndVisible];
     
     return YES;
     
