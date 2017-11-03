@@ -17,6 +17,8 @@
 
 @property StackBaseTable *table;
 
+@property UITableView *memoTable;
+
 typedef void(^CompletionBlock)(BOOL success);
 
 

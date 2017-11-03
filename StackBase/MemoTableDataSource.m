@@ -14,6 +14,10 @@
 @interface MemoTableDataSource()
 
 
+@property BOOL endOfDataReached;
+
+@property NSMutableArray<NSDictionary *> *records;
+
 @property NSMutableArray<NSString *> *memos;
 
 @property UIFont *cellFont;
@@ -26,9 +30,12 @@
 
 @implementation MemoTableDataSource
 
+
 -(instancetype)initWithTable:(UITableView *)table{
     
-    self.memos = [NSMutableArray new];
+    self.memos = [NSMutableArray new]; self.records = [NSMutableArray new];
+    
+    self.memoTable = table;
     
     self.cellFont = [UIFont fontWithName:(NSString *)FONT_FAMILY size:FONT_HEIGHT];
     
@@ -42,6 +49,8 @@
 
 
 -(void)initDataWithCompletionBlock:(CompletionBlock)compBlock{
+    
+    self.endOfDataReached = NO;
     
     [self connectTableToDataSourceWithCompletionBlock:^(BOOL success) {
         
@@ -70,9 +79,7 @@
     [StackBaseClient createStackBaseTableWithName:@"MemoTable" columns:@[[StackBaseColumn textColumnWithName:@"Memo"]] completionBlock:^(BOOL success, NSString *responseMessage, StackBaseTable *table) {
         
         if(success){
-            
-            NSLog(@"Memo Table Loaded: %@", table);
-            
+                        
             weakSelf.table = table;
             
         }
@@ -94,8 +101,6 @@
         if(success){
             
             dispatch_async(dispatch_get_main_queue(), ^{
-                
-                NSLog(@"new data %@", responseTable);
                 
                 [self setData: responseTable];
                 
@@ -129,13 +134,15 @@
 
 -(void)setData:(NSArray<NSDictionary *> *)newData{
     
-    self.memos = [NSMutableArray new];
+    self.memos = [NSMutableArray new]; self.records = [NSMutableArray new];
     
     for(NSDictionary *dictionary in newData){
         
+        [self.records addObject: dictionary];
+        
         NSString *memo = [dictionary objectForKey:@"Memo"];
         
-        [self.memos addObject:memo];
+        [self.memos addObject: memo];
         
     }
     
@@ -143,7 +150,13 @@
 
 -(void)addNewData:(NSArray<NSDictionary *> *)newData{
     
+    if(self.records == nil) self.records = [NSMutableArray new];
+    
+    if(self.memos == nil) self.memos = [NSMutableArray new];
+    
     for(NSDictionary *dictionary in newData){
+        
+        [self.records addObject: dictionary];
         
         NSString *memo = [dictionary objectForKey:@"Memo"];
         
@@ -151,7 +164,9 @@
         
     }
     
+    
 }
+
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
@@ -159,14 +174,12 @@
     
 }
 
-
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
     return [FrameCalculator frameOfDesiredText: self.memos[indexPath.row]  withFont: self.cellFont  andWidth: tableView.frame.size.width].size.height + 20;
     
 }
-
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -192,8 +205,39 @@
     
     [cell.textLabel setText: memo];
     
-    
     return cell;
+    
+}
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+        
+    CGFloat currentOffset = scrollView.contentOffset.y;
+    
+    CGFloat maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height;
+    
+    if (maximumOffset - currentOffset <= scrollView.frame.size.height/4 && !self.endOfDataReached && self.memos.count > 0) {
+        
+        self.endOfDataReached = YES;
+        
+        NSNumber *lowestId = [[self.records lastObject] objectForKey:@"id"];
+        
+        [self.table getFirst:50 rowsWhere: [StackBaseCondition condition: [StackBaseCondition columnWithName:@"id" isLessThan:lowestId] isOrderedBy:@[@"id"] descending:YES]  completionBlock:^(BOOL success, NSString *responseMessage, NSArray<NSDictionary *> *responseTable) {
+            
+            if(responseTable.count == 0){
+                
+            }else{
+                
+                [self addNewData:responseTable];
+                
+                [self.memoTable reloadData];
+                
+                self.endOfDataReached = NO;
+
+            }
+            
+        }];
+        
+    }
     
 }
 

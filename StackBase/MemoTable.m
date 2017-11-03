@@ -7,7 +7,7 @@
 //
 
 #import "MemoTable.h"
-
+#import "MemoTableDataSource.h"
 
 
 #define UIColorFromRGB(rgbValue) \
@@ -15,6 +15,15 @@
 green:((float)((rgbValue & 0x00FF00) >>  8))/255.0 \
 blue:((float)((rgbValue & 0x0000FF) >>  0))/255.0 \
 alpha:1.0]
+
+@interface MemoTable()
+
+
+@property UIRefreshControl *refreshController;
+
+
+@end
+
 
 @implementation MemoTable
 
@@ -32,6 +41,12 @@ alpha:1.0]
     self.tableFooterView = [[UIView alloc] init];
     
     self.separatorColor = UIColorFromRGB(0xdddddd);
+    
+    self.refreshController = [[UIRefreshControl alloc] init];
+    
+    [self.refreshController addTarget:self action:@selector(handleRefresh:) forControlEvents:UIControlEventValueChanged];
+    
+    [self addSubview: self.refreshController];
         
     return self;
     
@@ -44,6 +59,19 @@ alpha:1.0]
        
         self.transform = CGAffineTransformIdentity;
         
+    }];
+    
+}
+
+-(void)handleRefresh : (id)sender
+{
+
+    [((MemoTableDataSource *)self.dataSource) initDataWithCompletionBlock:^(BOOL success) {
+      
+        [self reloadData];
+
+        [self.refreshController endRefreshing];
+
     }];
     
 }
